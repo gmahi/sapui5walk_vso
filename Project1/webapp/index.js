@@ -1,7 +1,11 @@
 sap.ui.define([
-    "sap/m/Text"
-], function(Text){
+    "sap/ui/core/mvc/XMLView"
+], function(XMLView){
 
-new Text({ text :"Hello World ui5"}).placeAt("content")
+XMLView.create({
+    viewName: "sap.ui.demo.walkthrough.view.App"
+}).then(function(oView){
+    oView.placeAt("content")
+})
 
 });
