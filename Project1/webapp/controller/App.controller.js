@@ -11,7 +11,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
                 }
             };
             var oModel = new JSONModel(oData);
-            this.getView().setModel(oModel, "nModel" );
+            this.getView().setModel(oModel );
         },
 
         onShowHello: function () {
