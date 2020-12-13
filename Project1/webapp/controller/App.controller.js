@@ -5,7 +5,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 ], function (Controller, MessageToast, JSONModel, ResourceModel) {
     "use strict"
     return Controller.extend("sap.ui.demo.walkthrough.App", {
-        onInit: function () {
+        /* onInit: function () {
             var oData = {
                 recipient: {
                     name: "UI5"
@@ -20,7 +20,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
                 fallbackLocale: ""
             });
             this.getView().setModel(i18nModel, "i18n");
-        },
+        }, */
 
         onShowHello: function () {
             var oBundle = this.getView().getModel("i18n").getResourceBundle();
