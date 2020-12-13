@@ -7,12 +7,7 @@ sap.ui.define(["sap/ui/core/UIComponent",
     return UIComponent.extend("sap.ui.walkthrough.Component", {
 
         metadata: {
-            rootView: {
-                "viewName": "sap.ui.demo.walkthrough.view.App",
-                "type": "XML",
-                "async": true,
-                "id": "app"
-            },
+           manifest:"json"
 
         },
         init: function () {
@@ -27,13 +22,7 @@ sap.ui.define(["sap/ui/core/UIComponent",
             };
             var oModel = new JSONModel(oData);
             this.setModel(oModel);
-            // i18n model
-            var i18nModel = new ResourceModel({
-                bundleName: "sap.ui.demo.walkthrough.i18n.i18n",
-                supportedLocales: [""],
-                fallbackLocale: ""
-            });
-            this.setModel(i18nModel, "i18n");
+          
         }
 
 
