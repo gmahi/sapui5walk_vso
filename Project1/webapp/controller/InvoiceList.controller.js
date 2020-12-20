@@ -6,10 +6,10 @@ sap.ui.define(
       "sap.ui.demo.walkthrough.controller.InvoiceList",
       {
 
-onIit:function(){
+onInit:function(){
 
     var oViewModel = new JSONModel({
-          Currency: 'EUR'
+          currency: "EUR"
 
     });
 
