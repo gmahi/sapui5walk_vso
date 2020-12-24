@@ -28,6 +28,9 @@ sap.ui.define(["sap/ui/core/UIComponent",
 
             this._helloDialog = new HelloDialog(this.getRootControl());
 
+            // create the view based on the url/hash
+            this.getRouter().initialize();
+
         },
 
         exit: function () {
