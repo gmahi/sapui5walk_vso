@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="http://gauto-gwf.g-auto.sap.local:8000/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='GASCLNT400')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://gauto-gwf.g-auto.sap.local:8000/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='GASCLNT400')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://gauto-gwf.g-auto.sap.local:8000/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='GASCLNT400')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://gauto-gwf.g-auto.sap.local:8000/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='GASCLNT400')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://gauto-gwf.g-auto.sap.local:8000/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='GASCLNT400')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZDEMOSO_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="SEPM_I_BusinessPartnerType" sap:label="EPM Demo: Business Partner" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="BusinessPartnerUUID"/>
+                </Key>
+                <Property Name="BusinessPartnerUUID" Type="Edm.Guid" Nullable="false" sap:label="Busi. Partner UUID" sap:quickinfo="EPM: Business Partner Key"/>
+                <Property Name="BusinessPartner" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:text="CompanyName" sap:label="Business Partner ID" sap:quickinfo="EPM: Business Partner ID" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="BusinessPartnerRole" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:text="to_Role/BusinessPartnerRole_Text" sap:label="Bus. Part. Role" sap:quickinfo="EPM: Business Partner Role" sap:value-list="standard"/>
+                <Property Name="Currency" Type="Edm.String" MaxLength="5" sap:label="Currency Code" sap:quickinfo="EPM: Currency Code" sap:semantics="currency-code"/>
+                <Property Name="CompanyName" Type="Edm.String" MaxLength="80" sap:label="Company" sap:quickinfo="EPM: Company Name"/>
+                <Property Name="LegalForm" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Legal Form" sap:quickinfo="EPM: Legal Form of Business Partner"/>
+                <Property Name="AddressUUID" Type="Edm.Guid" sap:label="Node Key" sap:quickinfo="EPM: Generic Node Key"/>
+                <Property Name="EmailAddress" Type="Edm.String" MaxLength="255" sap:label="Email" sap:quickinfo="EPM: E-Mail Address" sap:semantics="email"/>
+                <Property Name="FaxNumber" Type="Edm.String" MaxLength="30" sap:label="Fax" sap:quickinfo="EPM: Fax Number" sap:semantics="tel"/>
+                <Property Name="PhoneNumber" Type="Edm.String" MaxLength="30" sap:label="Phone" sap:quickinfo="EPM: Phone Number" sap:semantics="tel"/>
+                <Property Name="URL" Type="Edm.String" sap:label="URI" sap:quickinfo="EPM: Web Address"/>
+                <Property Name="CreatedByUser" Type="Edm.Guid" sap:label="Node Key" sap:quickinfo="EPM: Generic Node Key" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CreationDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Created At" sap:quickinfo="EPM: Created At" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="LastChangedByUser" Type="Edm.Guid" sap:label="Node Key" sap:quickinfo="EPM: Generic Node Key" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="LastChangedDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Changed At" sap:quickinfo="EPM: Changed At" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="BuPaApprovalStatus" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Approval Status" sap:quickinfo="EPM: Business Partner Approval Status"/>
+                <NavigationProperty Name="to_Role" Relationship="ZDEMOSO_SRV.assoc_CA32E6D91FF86268CEC79C1898E8C302" FromRole="FromRole_assoc_CA32E6D91FF86268CEC79C1898E8C302" ToRole="ToRole_assoc_CA32E6D91FF86268CEC79C1898E8C302"/>
+            </EntityType>
+            <EntityType Name="SEPM_I_BusinessPartnerRoleType" sap:label="EPM Demo: Business Partner Role" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="BusinessPartnerRole"/>
+                </Key>
+                <Property Name="BusinessPartnerRole" Type="Edm.String" Nullable="false" MaxLength="3" sap:display-format="UpperCase" sap:text="BusinessPartnerRole_Text" sap:label="Bus. Part. Role" sap:quickinfo="EPM: Business Partner Role"/>
+                <Property Name="BusinessPartnerRole_Text" Type="Edm.String" MaxLength="60" sap:label="Short Descript." sap:quickinfo="Short Text for Fixed Values" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="SEPM_I_CurrencyType" sap:label="EPM Demo: Currency" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Currency"/>
+                </Key>
+                <Property Name="Currency" Type="Edm.String" Nullable="false" MaxLength="5" sap:text="Currency_Text" sap:label="Currency" sap:quickinfo="Currency Key" sap:semantics="currency-code"/>
+                <Property Name="Currency_Text" Type="Edm.String" MaxLength="15" sap:label="Short text" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CurrencyISOCode" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="ISO code" sap:quickinfo="ISO currency code"/>
+            </EntityType>
+            <EntityType Name="SEPM_I_SalesOrderBillingStatusType" sap:label="EPM Demo: Sales Order Billing Status" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="SalesOrderBillingStatus"/>
+                </Key>
+                <Property Name="SalesOrderBillingStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:display-format="UpperCase" sap:text="SalesOrderBillingStatus_Text" sap:label="Confirmation Status" sap:quickinfo="EPM: Sales Order Confirmation Status"/>
+                <Property Name="SalesOrderBillingStatus_Text" Type="Edm.String" MaxLength="60" sap:label="Short Descript." sap:quickinfo="Short Text for Fixed Values" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="Sepm_I_SalesOrdOverallStatusType" sap:label="EPM Demo: Sales Order Overall Status" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="SalesOrderOverallStatus"/>
+                </Key>
+                <Property Name="SalesOrderOverallStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:display-format="UpperCase" sap:text="SalesOrderOverallStatus_Text" sap:label="Overall Status" sap:quickinfo="EPM: Sales Order Overall Status"/>
+                <Property Name="SalesOrderOverallStatus_Text" Type="Edm.String" MaxLength="60" sap:label="Short Descript." sap:quickinfo="Short Text for Fixed Values" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="ZDEMO_C_SalesOrder_TXType" sap:label="Sales Order for transactional app" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="SalesOrder"/>
+                </Key>
+                <Property Name="SalesOrder" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Sales Order ID" sap:quickinfo="EPM: Sales Order Number"/>
+                <Property Name="BusinessPartner" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:text="to_BusinessPartner/CompanyName" sap:label="Business Partner ID" sap:quickinfo="EPM: Business Partner ID" sap:value-list="standard"/>
+                <Property Name="CurrencyCode" Type="Edm.String" MaxLength="5" sap:text="to_Currency/Currency_Text" sap:label="Currency Code" sap:quickinfo="EPM: Currency Code" sap:value-list="standard" sap:semantics="currency-code"/>
+                <Property Name="GrossAmount" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="CurrencyCode" sap:label="Gross Amount" sap:quickinfo="EPM: Total Gross Amount"/>
+                <Property Name="NetAmount" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="CurrencyCode" sap:label="Net Amount" sap:quickinfo="EPM: Total Net Amount"/>
+                <Property Name="BillingStatus" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:text="to_BillingStatus/SalesOrderBillingStatus_Text" sap:label="Confirmation Status" sap:quickinfo="EPM: Sales Order Confirmation Status" sap:value-list="standard"/>
+                <Property Name="OverallStatus" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:text="to_OverallStatus/SalesOrderOverallStatus_Text" sap:label="Overall Status" sap:quickinfo="EPM: Sales Order Overall Status" sap:value-list="standard"/>
+                <NavigationProperty Name="to_BillingStatus" Relationship="ZDEMOSO_SRV.assoc_13F15FD68791DDB030C186CED0328E8E" FromRole="FromRole_assoc_13F15FD68791DDB030C186CED0328E8E" ToRole="ToRole_assoc_13F15FD68791DDB030C186CED0328E8E"/>
+                <NavigationProperty Name="to_BusinessPartner" Relationship="ZDEMOSO_SRV.assoc_543E55B1C1581BA8998892258AD38173" FromRole="FromRole_assoc_543E55B1C1581BA8998892258AD38173" ToRole="ToRole_assoc_543E55B1C1581BA8998892258AD38173"/>
+                <NavigationProperty Name="to_Currency" Relationship="ZDEMOSO_SRV.assoc_36720F4CDB66630E93769C39A31742C8" FromRole="FromRole_assoc_36720F4CDB66630E93769C39A31742C8" ToRole="ToRole_assoc_36720F4CDB66630E93769C39A31742C8"/>
+                <NavigationProperty Name="to_OverallStatus" Relationship="ZDEMOSO_SRV.assoc_75D25CF8F1A9DD4CB81DD1E717DAAB48" FromRole="FromRole_assoc_75D25CF8F1A9DD4CB81DD1E717DAAB48" ToRole="ToRole_assoc_75D25CF8F1A9DD4CB81DD1E717DAAB48"/>
+            </EntityType>
+            <Association Name="assoc_CA32E6D91FF86268CEC79C1898E8C302" sap:content-version="1">
+                <End Type="ZDEMOSO_SRV.SEPM_I_BusinessPartnerType" Multiplicity="1" Role="FromRole_assoc_CA32E6D91FF86268CEC79C1898E8C302"/>
+                <End Type="ZDEMOSO_SRV.SEPM_I_BusinessPartnerRoleType" Multiplicity="0..1" Role="ToRole_assoc_CA32E6D91FF86268CEC79C1898E8C302"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_assoc_CA32E6D91FF86268CEC79C1898E8C302">
+                        <PropertyRef Name="BusinessPartnerRole"/>
+                    </Principal>
+                    <Dependent Role="FromRole_assoc_CA32E6D91FF86268CEC79C1898E8C302">
+                        <PropertyRef Name="BusinessPartnerRole"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="assoc_13F15FD68791DDB030C186CED0328E8E" sap:content-version="1">
+                <End Type="ZDEMOSO_SRV.ZDEMO_C_SalesOrder_TXType" Multiplicity="1" Role="FromRole_assoc_13F15FD68791DDB030C186CED0328E8E"/>
+                <End Type="ZDEMOSO_SRV.SEPM_I_SalesOrderBillingStatusType" Multiplicity="0..1" Role="ToRole_assoc_13F15FD68791DDB030C186CED0328E8E"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_assoc_13F15FD68791DDB030C186CED0328E8E">
+                        <PropertyRef Name="SalesOrderBillingStatus"/>
+                    </Principal>
+                    <Dependent Role="FromRole_assoc_13F15FD68791DDB030C186CED0328E8E">
+                        <PropertyRef Name="BillingStatus"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="assoc_543E55B1C1581BA8998892258AD38173" sap:content-version="1">
+                <End Type="ZDEMOSO_SRV.ZDEMO_C_SalesOrder_TXType" Multiplicity="1" Role="FromRole_assoc_543E55B1C1581BA8998892258AD38173"/>
+                <End Type="ZDEMOSO_SRV.SEPM_I_BusinessPartnerType" Multiplicity="0..1" Role="ToRole_assoc_543E55B1C1581BA8998892258AD38173"/>
+            </Association>
+            <Association Name="assoc_36720F4CDB66630E93769C39A31742C8" sap:content-version="1">
+                <End Type="ZDEMOSO_SRV.ZDEMO_C_SalesOrder_TXType" Multiplicity="1" Role="FromRole_assoc_36720F4CDB66630E93769C39A31742C8"/>
+                <End Type="ZDEMOSO_SRV.SEPM_I_CurrencyType" Multiplicity="0..1" Role="ToRole_assoc_36720F4CDB66630E93769C39A31742C8"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_assoc_36720F4CDB66630E93769C39A31742C8">
+                        <PropertyRef Name="Currency"/>
+                    </Principal>
+                    <Dependent Role="FromRole_assoc_36720F4CDB66630E93769C39A31742C8">
+                        <PropertyRef Name="CurrencyCode"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="assoc_75D25CF8F1A9DD4CB81DD1E717DAAB48" sap:content-version="1">
+                <End Type="ZDEMOSO_SRV.ZDEMO_C_SalesOrder_TXType" Multiplicity="1" Role="FromRole_assoc_75D25CF8F1A9DD4CB81DD1E717DAAB48"/>
+                <End Type="ZDEMOSO_SRV.Sepm_I_SalesOrdOverallStatusType" Multiplicity="0..1" Role="ToRole_assoc_75D25CF8F1A9DD4CB81DD1E717DAAB48"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_assoc_75D25CF8F1A9DD4CB81DD1E717DAAB48">
+                        <PropertyRef Name="SalesOrderOverallStatus"/>
+                    </Principal>
+                    <Dependent Role="FromRole_assoc_75D25CF8F1A9DD4CB81DD1E717DAAB48">
+                        <PropertyRef Name="OverallStatus"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ZDEMOSO_SRV_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="SEPM_I_BusinessPartner" EntityType="ZDEMOSO_SRV.SEPM_I_BusinessPartnerType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="SEPM_I_BusinessPartnerRole" EntityType="ZDEMOSO_SRV.SEPM_I_BusinessPartnerRoleType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="SEPM_I_Currency" EntityType="ZDEMOSO_SRV.SEPM_I_CurrencyType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="SEPM_I_SalesOrderBillingStatus" EntityType="ZDEMOSO_SRV.SEPM_I_SalesOrderBillingStatusType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="Sepm_I_SalesOrdOverallStatus" EntityType="ZDEMOSO_SRV.Sepm_I_SalesOrdOverallStatusType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZDEMO_C_SalesOrder_TX" EntityType="ZDEMOSO_SRV.ZDEMO_C_SalesOrder_TXType" sap:searchable="true" sap:content-version="1"/>
+                <AssociationSet Name="assoc_75D25CF8F1A9DD4CB81DD1E717DAAB48" Association="ZDEMOSO_SRV.assoc_75D25CF8F1A9DD4CB81DD1E717DAAB48" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZDEMO_C_SalesOrder_TX" Role="FromRole_assoc_75D25CF8F1A9DD4CB81DD1E717DAAB48"/>
+                    <End EntitySet="Sepm_I_SalesOrdOverallStatus" Role="ToRole_assoc_75D25CF8F1A9DD4CB81DD1E717DAAB48"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_36720F4CDB66630E93769C39A31742C8" Association="ZDEMOSO_SRV.assoc_36720F4CDB66630E93769C39A31742C8" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZDEMO_C_SalesOrder_TX" Role="FromRole_assoc_36720F4CDB66630E93769C39A31742C8"/>
+                    <End EntitySet="SEPM_I_Currency" Role="ToRole_assoc_36720F4CDB66630E93769C39A31742C8"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_13F15FD68791DDB030C186CED0328E8E" Association="ZDEMOSO_SRV.assoc_13F15FD68791DDB030C186CED0328E8E" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZDEMO_C_SalesOrder_TX" Role="FromRole_assoc_13F15FD68791DDB030C186CED0328E8E"/>
+                    <End EntitySet="SEPM_I_SalesOrderBillingStatus" Role="ToRole_assoc_13F15FD68791DDB030C186CED0328E8E"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_CA32E6D91FF86268CEC79C1898E8C302" Association="ZDEMOSO_SRV.assoc_CA32E6D91FF86268CEC79C1898E8C302" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SEPM_I_BusinessPartner" Role="FromRole_assoc_CA32E6D91FF86268CEC79C1898E8C302"/>
+                    <End EntitySet="SEPM_I_BusinessPartnerRole" Role="ToRole_assoc_CA32E6D91FF86268CEC79C1898E8C302"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_543E55B1C1581BA8998892258AD38173" Association="ZDEMOSO_SRV.assoc_543E55B1C1581BA8998892258AD38173" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZDEMO_C_SalesOrder_TX" Role="FromRole_assoc_543E55B1C1581BA8998892258AD38173"/>
+                    <End EntitySet="SEPM_I_BusinessPartner" Role="ToRole_assoc_543E55B1C1581BA8998892258AD38173"/>
+                </AssociationSet>
+            </EntityContainer>
+            <Annotations Target="ZDEMOSO_SRV.SEPM_I_BusinessPartnerType/BusinessPartnerRole" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="EPM Demo: Business Partner Role"/>
+                        <PropertyValue Property="CollectionPath" String="SEPM_I_BusinessPartnerRole"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="BusinessPartnerRole"/>
+                                    <PropertyValue Property="ValueListProperty" String="BusinessPartnerRole"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="BusinessPartnerRole_Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZDEMOSO_SRV.ZDEMO_C_SalesOrder_TXType/BusinessPartner" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="EPM Demo: Business Partner"/>
+                        <PropertyValue Property="CollectionPath" String="SEPM_I_BusinessPartner"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="BusinessPartner"/>
+                                    <PropertyValue Property="ValueListProperty" String="BusinessPartner"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CompanyName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZDEMOSO_SRV.ZDEMO_C_SalesOrder_TXType/CurrencyCode" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="EPM Demo: Currency"/>
+                        <PropertyValue Property="CollectionPath" String="SEPM_I_Currency"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CurrencyCode"/>
+                                    <PropertyValue Property="ValueListProperty" String="Currency"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Currency_Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZDEMOSO_SRV.ZDEMO_C_SalesOrder_TXType/BillingStatus" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="EPM Demo: Sales Order Billing Status"/>
+                        <PropertyValue Property="CollectionPath" String="SEPM_I_SalesOrderBillingStatus"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="BillingStatus"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrderBillingStatus"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrderBillingStatus_Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZDEMOSO_SRV.ZDEMO_C_SalesOrder_TXType/OverallStatus" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="EPM Demo: Sales Order Overall Status"/>
+                        <PropertyValue Property="CollectionPath" String="Sepm_I_SalesOrdOverallStatus"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="OverallStatus"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrderOverallStatus"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrderOverallStatus_Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZDEMOSO_SRV.ZDEMOSO_SRV_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Aggregation.ApplySupported">
+                    <Record>
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="None"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZDEMOSO_SRV.ZDEMOSO_SRV_Entities/SEPM_I_BusinessPartner" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="URL"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SearchExpression"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>URL</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZDEMOSO_SRV.SEPM_I_BusinessPartnerType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SemanticKey">
+                    <Collection>
+                        <PropertyPath>BusinessPartner</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZDEMOSO_SRV.ZDEMO_C_SalesOrder_TXType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SemanticKey">
+                    <Collection>
+                        <PropertyPath>SalesOrder</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="http://gauto-gwf.g-auto.sap.local:8000/sap/opu/odata/sap/ZDEMOSO_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://gauto-gwf.g-auto.sap.local:8000/sap/opu/odata/sap/ZDEMOSO_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

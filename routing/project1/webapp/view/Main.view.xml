@@ -1,0 +1,49 @@
+<mvc:View
+    controllerName="com.route.project1.controller.Main"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns:layout="sap.ui.layout"
+	xmlns:form="sap.ui.layout.form"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<content>
+
+						<layout:Grid defaultSpan="L12 M12 S12">
+							<layout:content>
+								<form:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanM="12" labelSpanL="12" labelSpanXL="12" emptySpanL="6" emptySpanM="6">
+									<form:content>
+										<Label text="Products" labelFor="multiInput"/>
+										<Input
+											id="input"
+											showValueHelp="true"
+											valueHelpOnly="true"
+											valueHelpRequest=".onValueHelpRequested"
+											suggestionItems="{
+												path: '/ZDEMO_C_SalesOrder_TX',
+												sorter: { path: 'SalesOrder' }
+											}"
+										>
+											<core:Item key="{SalesOrder}" text="{Name} ({BusinessPartner})" />
+										</Input>
+									</form:content>
+								</form:SimpleForm>
+
+							</layout:content>
+						</layout:Grid>
+					<!-- 	<Select items="{/ZDEMO_C_SalesOrder_TX}" change="onChange" selectedKey="{/SalesOrder}">
+							<items>
+								<core:Item text="{BusinessPartner}" key="{SalesOrder}"></core:Item>
+							</items>
+						</Select> -->
+					
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

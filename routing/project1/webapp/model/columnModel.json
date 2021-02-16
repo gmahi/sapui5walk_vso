@@ -1,0 +1,14 @@
+{
+	"cols": [
+		{
+			"label": "Sales Order",
+			"template": "SalesOrder",
+			"width": "5rem"
+		},
+		{
+			"label": "Business Partner",
+			"template": "BusinessPartner"
+		}
+		
+	]
+}
