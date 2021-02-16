@@ -1,0 +1,901 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="http://gauto-gwf.g-auto.sap.local:8000/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='GASCLNT400')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://gauto-gwf.g-auto.sap.local:8000/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='GASCLNT400')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://gauto-gwf.g-auto.sap.local:8000/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='GASCLNT400')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://gauto-gwf.g-auto.sap.local:8000/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='GASCLNT400')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://gauto-gwf.g-auto.sap.local:8000/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='GASCLNT400')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://gauto-gwf.g-auto.sap.local:8000/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='GASCLNT400')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://gauto-gwf.g-auto.sap.local:8000/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='GASCLNT400')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://gauto-gwf.g-auto.sap.local:8000/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='GASCLNT400')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://gauto-gwf.g-auto.sap.local:8000/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='GASCLNT400')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZC_JITCOCKPIT_CDS" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="C_JITCallTypeValueHelpType" sap:label="Consumption for Call Type Value Help" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="JITCallType"/>
+                </Key>
+                <Property Name="JITCallType" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:text="JITCallType_Text" sap:label="Lower Value" sap:quickinfo="Values for Domains: Single Value/Lower Limit"/>
+                <Property Name="JITCallType_Text" Type="Edm.String" MaxLength="60" sap:label="Short Descript." sap:quickinfo="Short Text for Fixed Values" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="C_JITContactPersonType" sap:label="Consumption View for JIT Contact Person" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="CustomerUUID"/>
+                    <PropertyRef Name="BusinessPartnerPerson"/>
+                </Key>
+                <Property Name="CustomerUUID" Type="Edm.Guid" Nullable="false" sap:label="NodeID" sap:heading=""/>
+                <Property Name="BusinessPartnerPerson" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Business Partner" sap:quickinfo="Business Partner Number"/>
+                <Property Name="ShipToParty" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Ship-to party"/>
+                <Property Name="PartnerFunction" Type="Edm.String" MaxLength="44"/>
+                <Property Name="BusinessPartnerName" Type="Edm.String" MaxLength="81" sap:label="Business Partner Name" sap:quickinfo="BUSINESS PARTNER NAME"/>
+                <Property Name="BusinessPartner" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:text="BusinessPartnerName" sap:label="Business Partner" sap:quickinfo="Business Partner Number"/>
+                <Property Name="CityName" Type="Edm.String" MaxLength="35" sap:label="City"/>
+                <Property Name="CountryName" Type="Edm.String" MaxLength="50" sap:label="Country Name" sap:quickinfo="Country Name (Max. 50 Characters)"/>
+                <Property Name="AddressPhoneNumber" Type="Edm.String" MaxLength="41"/>
+                <Property Name="EmailAddress" Type="Edm.String" MaxLength="241" sap:label="E-Mail Address"/>
+                <Property Name="Department" Type="Edm.String" MaxLength="45"/>
+            </EntityType>
+            <EntityType Name="C_JITExtCallNumberVHType" sap:label="Consumption VH for External JIT Call Num" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ExternalJITCallNumber"/>
+                </Key>
+                <Property Name="ExternalJITCallNumber" Type="Edm.String" Nullable="false" MaxLength="35" sap:label="External JIT Call Number" sap:quickinfo="External Call Number"/>
+                <Property Name="ShipToParty" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Ship-to party"/>
+                <Property Name="SalesOrganization" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Sales Organization"/>
+                <Property Name="DistributionChannel" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Distribution Channel"/>
+                <Property Name="Division" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Division"/>
+            </EntityType>
+            <EntityType Name="C_JITLifecycleStatusValueHelpType" sap:label="JIT Lifecycle Status Value Help" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="JITLifecycleStatus"/>
+                </Key>
+                <Property Name="JITLifecycleStatus" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:text="JITLifecycleStatusText" sap:label="Lower Value" sap:quickinfo="Values for Domains: Single Value/Lower Limit"/>
+                <Property Name="JITLifecycleStatusText" Type="Edm.String" MaxLength="60" sap:label="Lifecycle Status" sap:quickinfo="Short Text for Fixed Values"/>
+            </EntityType>
+            <EntityType Name="C_JITMaterialValueHelpType" sap:label="Value Help for Material" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Product"/>
+                    <PropertyRef Name="Plant"/>
+                </Key>
+                <Property Name="Product" Type="Edm.String" Nullable="false" MaxLength="40" sap:display-format="UpperCase" sap:text="ProductName" sap:label="Material"/>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Plant"/>
+                <Property Name="ProductName" Type="Edm.String" MaxLength="40" sap:label="Material Name" sap:quickinfo="Product Description"/>
+                <Property Name="AuthorizationGroup" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Authorization Group"/>
+            </EntityType>
+            <EntityType Name="C_JITPartnerDataVHType" sap:label="Consumption view for JIT Partner Data" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="CustomerPartnerDescription"/>
+                    <PropertyRef Name="ActiveSupplier"/>
+                    <PropertyRef Name="UnloadingPointName"/>
+                    <PropertyRef Name="ShipToParty"/>
+                    <PropertyRef Name="SalesOrganization"/>
+                    <PropertyRef Name="DistributionChannel"/>
+                    <PropertyRef Name="Division"/>
+                </Key>
+                <Property Name="CustomerPartnerDescription" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Partner Description of Ship-To Party" sap:quickinfo="Customer description of partner (plant, storage location)"/>
+                <Property Name="ActiveSupplier" Type="Edm.String" Nullable="false" MaxLength="17" sap:display-format="UpperCase" sap:label="Partner Description of Supplier" sap:quickinfo="Supplier Number at Customer Location"/>
+                <Property Name="UnloadingPointName" Type="Edm.String" Nullable="false" MaxLength="25" sap:label="Unloading Point"/>
+                <Property Name="ShipToParty" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:text="CustomerPartnerDescription" sap:label="Ship-To Party" sap:quickinfo="Customer Number"/>
+                <Property Name="SalesOrganization" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Sales Organization"/>
+                <Property Name="DistributionChannel" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase" sap:label="Distribution Channel"/>
+                <Property Name="Division" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase" sap:label="Division"/>
+                <Property Name="SoldToParty" Type="Edm.String" MaxLength="10" sap:label="Sold-To Party"/>
+                <Property Name="OrganizationBPName1" Type="Edm.String" MaxLength="35" sap:label="Name" sap:quickinfo="Name 1"/>
+                <Property Name="OrganizationBPName2" Type="Edm.String" MaxLength="35" sap:label="Name 2"/>
+                <Property Name="CustomerName" Type="Edm.String" MaxLength="80" sap:label="Ship-To Party Description" sap:quickinfo="Name of Customer"/>
+            </EntityType>
+            <EntityType Name="C_JITShipToPartyValueHelpType" sap:label="JIT ShipToParty Value Help" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="CustomerUUID"/>
+                </Key>
+                <Property Name="CustomerUUID" Type="Edm.Guid" Nullable="false" sap:label="NodeID" sap:heading=""/>
+                <Property Name="ShipToParty" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:text="OrganizationBPName1" sap:label="Ship-to party"/>
+                <Property Name="OrganizationBPName1" Type="Edm.String" MaxLength="40" sap:label="Description" sap:quickinfo="Name 1 of organization"/>
+                <Property Name="BusinessPartnerName" Type="Edm.String" MaxLength="81" sap:label="Business Partner Name" sap:quickinfo="BUSINESS PARTNER NAME"/>
+            </EntityType>
+            <EntityType Name="I_CustomerType" sap:label="Customer" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Customer"/>
+                </Key>
+                <Property Name="Customer" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:text="CustomerName" sap:label="Customer" sap:quickinfo="Customer Number"/>
+                <Property Name="CustomerName" Type="Edm.String" MaxLength="80" sap:label="Name of Customer"/>
+                <Property Name="CustomerFullName" Type="Edm.String" MaxLength="220" sap:display-format="UpperCase" sap:label="Customer Name" sap:quickinfo="Customer Full Name"/>
+                <Property Name="CreatedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Created by" sap:quickinfo="Name of Person who Created the Object"/>
+                <Property Name="CreationDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Created on" sap:quickinfo="Date on which the Record Was Created"/>
+                <Property Name="AddressID" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Address"/>
+                <Property Name="CustomerClassification" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:text="to_CustomerClassification/CustomerClassification_Text" sap:label="Customer Classific." sap:quickinfo="Customer Classification" sap:value-list="standard"/>
+                <Property Name="VATRegistration" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="VAT Registration No." sap:quickinfo="VAT Registration Number"/>
+                <Property Name="CustomerAccountGroup" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Account group" sap:quickinfo="Customer Account Group"/>
+                <Property Name="AuthorizationGroup" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Authorization" sap:quickinfo="Authorization Group"/>
+                <Property Name="DeliveryIsBlocked" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Delivery block" sap:quickinfo="Central delivery block for the customer"/>
+                <Property Name="PostingIsBlocked" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Posting Block" sap:quickinfo="Central posting block"/>
+                <Property Name="BillingIsBlockedForCustomer" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Billing block" sap:quickinfo="Central billing block for customer"/>
+                <Property Name="OrderIsBlockedForCustomer" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Order block" sap:quickinfo="Central order block for customer"/>
+                <Property Name="InternationalLocationNumber1" Type="Edm.String" MaxLength="7" sap:display-format="NonNegative" sap:label="Int. location no. 1" sap:quickinfo="International location number  (part 1)"/>
+                <Property Name="IsOneTimeAccount" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="One-time account" sap:quickinfo="Indicator: Is the account a one-time account?"/>
+                <Property Name="TaxJurisdiction" Type="Edm.String" MaxLength="15" sap:display-format="UpperCase" sap:label="Tax Jurisdiction"/>
+                <Property Name="Industry" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Industry" sap:quickinfo="Industry key"/>
+                <Property Name="TaxNumberType" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Tax number type" sap:quickinfo="Tax Number Type"/>
+                <Property Name="TaxNumber1" Type="Edm.String" MaxLength="16" sap:display-format="UpperCase" sap:label="Tax Number 1"/>
+                <Property Name="TaxNumber2" Type="Edm.String" MaxLength="11" sap:display-format="UpperCase" sap:label="Tax Number 2"/>
+                <Property Name="TaxNumber3" Type="Edm.String" MaxLength="18" sap:display-format="UpperCase" sap:label="Tax Number 3"/>
+                <Property Name="TaxNumber4" Type="Edm.String" MaxLength="18" sap:display-format="UpperCase" sap:label="Tax Number 4"/>
+                <Property Name="TaxNumber5" Type="Edm.String" MaxLength="60" sap:display-format="UpperCase" sap:label="Tax Number 5"/>
+                <Property Name="CustomerCorporateGroup" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Group key"/>
+                <Property Name="Supplier" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Vendor" sap:quickinfo="Account Number of Vendor or Creditor"/>
+                <Property Name="NielsenRegion" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Nielsen indicator" sap:quickinfo="Nielsen ID"/>
+                <Property Name="IndustryCode1" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Industry code 1"/>
+                <Property Name="IndustryCode2" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Industry code 2"/>
+                <Property Name="IndustryCode3" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Industry code 3"/>
+                <Property Name="IndustryCode4" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Industry code 4"/>
+                <Property Name="IndustryCode5" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Industry code 5"/>
+                <Property Name="Country" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Country" sap:quickinfo="Country Key"/>
+                <Property Name="OrganizationBPName1" Type="Edm.String" MaxLength="35" sap:label="Name" sap:quickinfo="Name 1"/>
+                <Property Name="OrganizationBPName2" Type="Edm.String" MaxLength="35" sap:label="Name 2"/>
+                <Property Name="CityName" Type="Edm.String" MaxLength="35" sap:label="City"/>
+                <Property Name="PostalCode" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Postal Code"/>
+                <Property Name="StreetName" Type="Edm.String" MaxLength="35" sap:label="Street" sap:quickinfo="Street and House Number"/>
+                <Property Name="SortField" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Search term" sap:quickinfo="Sort field"/>
+                <Property Name="FaxNumber" Type="Edm.String" MaxLength="31" sap:label="Fax Number"/>
+                <Property Name="BR_SUFRAMACode" Type="Edm.String" MaxLength="9" sap:display-format="UpperCase" sap:label="Suframa Code"/>
+                <Property Name="Region" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Region" sap:quickinfo="Region (State, Province, County)"/>
+                <Property Name="TelephoneNumber1" Type="Edm.String" MaxLength="16" sap:label="Telephone 1" sap:quickinfo="First telephone number"/>
+                <Property Name="TelephoneNumber2" Type="Edm.String" MaxLength="16" sap:label="Telephone 2" sap:quickinfo="Second telephone number"/>
+                <Property Name="AlternativePayerAccount" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Alternative payer" sap:quickinfo="Account number of an alternative payer"/>
+                <Property Name="DataMediumExchangeIndicator" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="DME indicator" sap:quickinfo="Report key for data medium exchange"/>
+                <Property Name="VATLiability" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Liable for VAT"/>
+                <Property Name="IsBusinessPurposeCompleted" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Purpose Completed" sap:quickinfo="Business Purpose Completed Flag"/>
+                <Property Name="ResponsibleType" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Tax type"/>
+                <Property Name="FiscalAddress" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Fiscal address" sap:quickinfo="Account number of the master record with the fiscal address"/>
+                <Property Name="NFPartnerIsNaturalPerson" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Natural Person"/>
+                <Property Name="DeletionIndicator" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Deletion flag" sap:quickinfo="Central Deletion Flag for Master Record"/>
+                <Property Name="Language" Type="Edm.String" MaxLength="2" sap:label="Language Key"/>
+                <Property Name="TradingPartner" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:label="Trading Partner No." sap:quickinfo="Company ID of Trading Partner"/>
+                <Property Name="DeliveryDateTypeRule" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Deliv Date Rule" sap:quickinfo="Delivery Date Rule"/>
+                <Property Name="TaxInvoiceRepresentativeName" Type="Edm.String" MaxLength="10" sap:label="Rep's Name" sap:quickinfo="Name of Representative"/>
+                <Property Name="BusinessType" Type="Edm.String" MaxLength="30" sap:label="Type of Business"/>
+                <Property Name="IndustryType" Type="Edm.String" MaxLength="30" sap:label="Type of Industry"/>
+                <Property Name="TW_CollvBillingIsSupported" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Consolidated Invoic." sap:quickinfo="Consolidated Invoicing for Taiwan"/>
+                <NavigationProperty Name="to_CustomerClassification" Relationship="ZC_JITCOCKPIT_CDS.assoc_C9CD836CFC89E1433FB2649E56D3AA66" FromRole="FromRole_assoc_C9CD836CFC89E1433FB2649E56D3AA66" ToRole="ToRole_assoc_C9CD836CFC89E1433FB2649E56D3AA66"/>
+            </EntityType>
+            <EntityType Name="I_CustomerClassificationType" sap:label="Customer Classification" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="CustomerClassification"/>
+                </Key>
+                <Property Name="CustomerClassification" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase" sap:text="CustomerClassification_Text" sap:label="Customer Classific." sap:quickinfo="Customer Classification"/>
+                <Property Name="CustomerClassification_Text" Type="Edm.String" MaxLength="20" sap:label="Customer Classification Description" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="I_JITCallApplicationLogType" sap:label="JIT Call Application Log" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ApplicationLogHandle"/>
+                </Key>
+                <Property Name="ApplicationLogHandle" Type="Edm.Guid" Nullable="false" sap:label="Handle" sap:quickinfo="Application Log: Log Handle"/>
+                <Property Name="ApplicationLogObject" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Object" sap:quickinfo="Application log: Object name (Application code)"/>
+                <Property Name="ApplicationLogSubobject" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Subobject" sap:quickinfo="Application Log: Subobject"/>
+                <Property Name="JITCallProcessingLogID" Type="Edm.String" MaxLength="100" sap:label="External ID" sap:quickinfo="Application Log: External ID"/>
+                <Property Name="ApplicationLog" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Log number" sap:quickinfo="Application log: log number"/>
+                <Property Name="Severity" Type="Edm.String" MaxLength="1"/>
+            </EntityType>
+            <EntityType Name="I_JITCallRefTextBasicType" sap:label="Basic view for JIT Call Reference text" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="JITCallComponentUUID"/>
+                </Key>
+                <Property Name="JITCallComponentUUID" Type="Edm.Guid" Nullable="false" sap:label="NodeID" sap:heading=""/>
+                <Property Name="InternalJITCallNumber" Type="Edm.String" MaxLength="10" sap:display-format="NonNegative" sap:label="Call Number"/>
+                <Property Name="JITCallItemNumber" Type="Edm.String" MaxLength="4" sap:display-format="NonNegative" sap:label="Call Item Number"/>
+                <Property Name="CompGrpNumber" Type="Edm.String" MaxLength="60" sap:display-format="UpperCase" sap:label="Component Group No." sap:quickinfo="Component Group Number"/>
+                <Property Name="JITRefType" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Reference Type" sap:quickinfo="Type of Reference Number"/>
+                <Property Name="JITRefText" Type="Edm.String" sap:display-format="UpperCase" sap:label="Reference Number" sap:quickinfo="Reference Number / Reference Text for JIT Call"/>
+            </EntityType>
+            <EntityType Name="ZC_JITCOCKPITType" sap:label="Consumption view for Jit Cockpit" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="InternalJITCallNumber"/>
+                    <PropertyRef Name="CompGrpNumber"/>
+                </Key>
+                <Property Name="ExternalJITCallNumber_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="InternalJITCallNumber" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="NonNegative" sap:label="Internal JIT Call Number" sap:quickinfo="Call Number" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CompGrpNumber" Type="Edm.String" Nullable="false" MaxLength="60" sap:display-format="UpperCase" sap:label="Component Group No." sap:quickinfo="Component Group Number"/>
+                <Property Name="ExternalJITCallNumber" Type="Edm.String" MaxLength="35" sap:field-control="ExternalJITCallNumber_fc" sap:label="External JIT Call Number"/>
+                <Property Name="CustomerUUID" Type="Edm.Guid" sap:label="NodeID" sap:heading=""/>
+                <Property Name="ActiveSupplier" Type="Edm.String" MaxLength="10" sap:label="Partner Description of Supplier" sap:value-list="standard"/>
+                <Property Name="ExternalJITCallNumberForFilter" Type="Edm.String" MaxLength="35" sap:label="External JIT Call Number" sap:quickinfo="External Call Number" sap:value-list="standard"/>
+                <Property Name="ShipToParty" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:text="BusinessPartnerName" sap:label="Ship-To Party" sap:quickinfo="Ship-to party" sap:value-list="standard"/>
+                <Property Name="ShipToPartyForFilter" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Ship-To Party" sap:quickinfo="Ship-to party" sap:value-list="standard"/>
+                <Property Name="BusinessPartnerName" Type="Edm.String" MaxLength="81" sap:label="Business Partner Name" sap:quickinfo="BUSINESS PARTNER NAME" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OrganizationBPName1" Type="Edm.String" MaxLength="40" sap:label="Ship-To Party Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SoldToParty" Type="Edm.String" MaxLength="10" sap:label="Sold-To Party" sap:value-list="standard"/>
+                <Property Name="JITLifecycleStatus" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:text="JITLifecycleStatusText" sap:label="Status" sap:quickinfo="Life Cycle Status" sap:value-list="fixed-values"/>
+                <Property Name="JITLifecycleStatusText" Type="Edm.String" MaxLength="60" sap:label="Status" sap:quickinfo="Short Text for Fixed Values" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="JITCallType" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:text="JITCallTypeText" sap:label="Call Type" sap:value-list="fixed-values"/>
+                <Property Name="JITCallTypeText" Type="Edm.String" MaxLength="60" sap:label="Call Type" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrganization" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Sales Organization" sap:value-list="standard"/>
+                <Property Name="DistributionChannel" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Distribution Channel" sap:value-list="standard"/>
+                <Property Name="Division" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Division" sap:value-list="standard"/>
+                <Property Name="CompGrpMatl" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:text="ProductName" sap:label="Component Group Material" sap:quickinfo="Components Group Material" sap:creatable="false" sap:updatable="false" sap:value-list="standard"/>
+                <Property Name="ProductName" Type="Edm.String" MaxLength="40" sap:label="Product Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Plant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Plant" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CustomerPartnerDescription" Type="Edm.String" MaxLength="30" sap:label="Partner Description of Ship-To Party" sap:quickinfo="Customer description of partner (plant, storage location)" sap:value-list="standard"/>
+                <Property Name="JITCallProcessingLogID" Type="Edm.String" MaxLength="45"/>
+                <NavigationProperty Name="to_Customer" Relationship="ZC_JITCOCKPIT_CDS.assoc_243F373C786E8363F9E11BC0304AF3AB" FromRole="FromRole_assoc_243F373C786E8363F9E11BC0304AF3AB" ToRole="ToRole_assoc_243F373C786E8363F9E11BC0304AF3AB"/>
+                <NavigationProperty Name="to_JITCallApplicationLog" Relationship="ZC_JITCOCKPIT_CDS.assoc_9CC86040191C4C298A7E06F462C01A65" FromRole="FromRole_assoc_9CC86040191C4C298A7E06F462C01A65" ToRole="ToRole_assoc_9CC86040191C4C298A7E06F462C01A65"/>
+                <NavigationProperty Name="to_JITCallRefTextTP" Relationship="ZC_JITCOCKPIT_CDS.assoc_3505337FD17A5F215313EFE22BCD45B6" FromRole="FromRole_assoc_3505337FD17A5F215313EFE22BCD45B6" ToRole="ToRole_assoc_3505337FD17A5F215313EFE22BCD45B6"/>
+                <NavigationProperty Name="to_JITCallTypeValueHelp" Relationship="ZC_JITCOCKPIT_CDS.assoc_0D02503AFBF6606B983FA4F14CE051AA" FromRole="FromRole_assoc_0D02503AFBF6606B983FA4F14CE051AA" ToRole="ToRole_assoc_0D02503AFBF6606B983FA4F14CE051AA"/>
+                <NavigationProperty Name="to_JITContactPerson" Relationship="ZC_JITCOCKPIT_CDS.assoc_425F9ABA76A477E5FC042D8E32C20317" FromRole="FromRole_assoc_425F9ABA76A477E5FC042D8E32C20317" ToRole="ToRole_assoc_425F9ABA76A477E5FC042D8E32C20317"/>
+                <NavigationProperty Name="to_JITExtCallNumberVH" Relationship="ZC_JITCOCKPIT_CDS.assoc_62C835545E7E86CA91579852C1F1AB02" FromRole="FromRole_assoc_62C835545E7E86CA91579852C1F1AB02" ToRole="ToRole_assoc_62C835545E7E86CA91579852C1F1AB02"/>
+                <NavigationProperty Name="to_JITLifecycleStatusValueHelp" Relationship="ZC_JITCOCKPIT_CDS.assoc_94F326EECC463D1A76A3C3E02146A558" FromRole="FromRole_assoc_94F326EECC463D1A76A3C3E02146A558" ToRole="ToRole_assoc_94F326EECC463D1A76A3C3E02146A558"/>
+                <NavigationProperty Name="to_JITMaterialVH" Relationship="ZC_JITCOCKPIT_CDS.assoc_B5362B3BE57AD3AF27A57B28AF654BB8" FromRole="FromRole_assoc_B5362B3BE57AD3AF27A57B28AF654BB8" ToRole="ToRole_assoc_B5362B3BE57AD3AF27A57B28AF654BB8"/>
+                <NavigationProperty Name="to_JITPartnerDataVH" Relationship="ZC_JITCOCKPIT_CDS.assoc_E59CCA88E05063849064F4FFECC4ABC2" FromRole="FromRole_assoc_E59CCA88E05063849064F4FFECC4ABC2" ToRole="ToRole_assoc_E59CCA88E05063849064F4FFECC4ABC2"/>
+                <NavigationProperty Name="to_JITShipToPartyValueHelp" Relationship="ZC_JITCOCKPIT_CDS.assoc_5993110D723B39F7FD5BD4B3C8A1F16E" FromRole="FromRole_assoc_5993110D723B39F7FD5BD4B3C8A1F16E" ToRole="ToRole_assoc_5993110D723B39F7FD5BD4B3C8A1F16E"/>
+            </EntityType>
+            <Association Name="assoc_C9CD836CFC89E1433FB2649E56D3AA66" sap:content-version="1">
+                <End Type="ZC_JITCOCKPIT_CDS.I_CustomerType" Multiplicity="1" Role="FromRole_assoc_C9CD836CFC89E1433FB2649E56D3AA66"/>
+                <End Type="ZC_JITCOCKPIT_CDS.I_CustomerClassificationType" Multiplicity="0..1" Role="ToRole_assoc_C9CD836CFC89E1433FB2649E56D3AA66"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_assoc_C9CD836CFC89E1433FB2649E56D3AA66">
+                        <PropertyRef Name="CustomerClassification"/>
+                    </Principal>
+                    <Dependent Role="FromRole_assoc_C9CD836CFC89E1433FB2649E56D3AA66">
+                        <PropertyRef Name="CustomerClassification"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="assoc_243F373C786E8363F9E11BC0304AF3AB" sap:content-version="1">
+                <End Type="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType" Multiplicity="1" Role="FromRole_assoc_243F373C786E8363F9E11BC0304AF3AB"/>
+                <End Type="ZC_JITCOCKPIT_CDS.I_CustomerType" Multiplicity="0..1" Role="ToRole_assoc_243F373C786E8363F9E11BC0304AF3AB"/>
+            </Association>
+            <Association Name="assoc_9CC86040191C4C298A7E06F462C01A65" sap:content-version="1">
+                <End Type="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType" Multiplicity="1" Role="FromRole_assoc_9CC86040191C4C298A7E06F462C01A65"/>
+                <End Type="ZC_JITCOCKPIT_CDS.I_JITCallApplicationLogType" Multiplicity="*" Role="ToRole_assoc_9CC86040191C4C298A7E06F462C01A65"/>
+            </Association>
+            <Association Name="assoc_3505337FD17A5F215313EFE22BCD45B6" sap:content-version="1">
+                <End Type="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType" Multiplicity="1" Role="FromRole_assoc_3505337FD17A5F215313EFE22BCD45B6"/>
+                <End Type="ZC_JITCOCKPIT_CDS.I_JITCallRefTextBasicType" Multiplicity="*" Role="ToRole_assoc_3505337FD17A5F215313EFE22BCD45B6"/>
+            </Association>
+            <Association Name="assoc_0D02503AFBF6606B983FA4F14CE051AA" sap:content-version="1">
+                <End Type="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType" Multiplicity="1" Role="FromRole_assoc_0D02503AFBF6606B983FA4F14CE051AA"/>
+                <End Type="ZC_JITCOCKPIT_CDS.C_JITCallTypeValueHelpType" Multiplicity="0..1" Role="ToRole_assoc_0D02503AFBF6606B983FA4F14CE051AA"/>
+            </Association>
+            <Association Name="assoc_425F9ABA76A477E5FC042D8E32C20317" sap:content-version="1">
+                <End Type="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType" Multiplicity="1" Role="FromRole_assoc_425F9ABA76A477E5FC042D8E32C20317"/>
+                <End Type="ZC_JITCOCKPIT_CDS.C_JITContactPersonType" Multiplicity="*" Role="ToRole_assoc_425F9ABA76A477E5FC042D8E32C20317"/>
+            </Association>
+            <Association Name="assoc_62C835545E7E86CA91579852C1F1AB02" sap:content-version="1">
+                <End Type="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType" Multiplicity="1" Role="FromRole_assoc_62C835545E7E86CA91579852C1F1AB02"/>
+                <End Type="ZC_JITCOCKPIT_CDS.C_JITExtCallNumberVHType" Multiplicity="0..1" Role="ToRole_assoc_62C835545E7E86CA91579852C1F1AB02"/>
+            </Association>
+            <Association Name="assoc_94F326EECC463D1A76A3C3E02146A558" sap:content-version="1">
+                <End Type="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType" Multiplicity="1" Role="FromRole_assoc_94F326EECC463D1A76A3C3E02146A558"/>
+                <End Type="ZC_JITCOCKPIT_CDS.C_JITLifecycleStatusValueHelpType" Multiplicity="0..1" Role="ToRole_assoc_94F326EECC463D1A76A3C3E02146A558"/>
+            </Association>
+            <Association Name="assoc_B5362B3BE57AD3AF27A57B28AF654BB8" sap:content-version="1">
+                <End Type="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType" Multiplicity="1" Role="FromRole_assoc_B5362B3BE57AD3AF27A57B28AF654BB8"/>
+                <End Type="ZC_JITCOCKPIT_CDS.C_JITMaterialValueHelpType" Multiplicity="1" Role="ToRole_assoc_B5362B3BE57AD3AF27A57B28AF654BB8"/>
+            </Association>
+            <Association Name="assoc_E59CCA88E05063849064F4FFECC4ABC2" sap:content-version="1">
+                <End Type="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType" Multiplicity="1" Role="FromRole_assoc_E59CCA88E05063849064F4FFECC4ABC2"/>
+                <End Type="ZC_JITCOCKPIT_CDS.C_JITPartnerDataVHType" Multiplicity="*" Role="ToRole_assoc_E59CCA88E05063849064F4FFECC4ABC2"/>
+            </Association>
+            <Association Name="assoc_5993110D723B39F7FD5BD4B3C8A1F16E" sap:content-version="1">
+                <End Type="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType" Multiplicity="1" Role="FromRole_assoc_5993110D723B39F7FD5BD4B3C8A1F16E"/>
+                <End Type="ZC_JITCOCKPIT_CDS.C_JITShipToPartyValueHelpType" Multiplicity="0..1" Role="ToRole_assoc_5993110D723B39F7FD5BD4B3C8A1F16E"/>
+            </Association>
+            <EntityContainer Name="ZC_JITCOCKPIT_CDS_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="C_JITCallTypeValueHelp" EntityType="ZC_JITCOCKPIT_CDS.C_JITCallTypeValueHelpType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="C_JITContactPerson" EntityType="ZC_JITCOCKPIT_CDS.C_JITContactPersonType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="C_JITExtCallNumberVH" EntityType="ZC_JITCOCKPIT_CDS.C_JITExtCallNumberVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="C_JITLifecycleStatusValueHelp" EntityType="ZC_JITCOCKPIT_CDS.C_JITLifecycleStatusValueHelpType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="C_JITMaterialValueHelp" EntityType="ZC_JITCOCKPIT_CDS.C_JITMaterialValueHelpType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="C_JITPartnerDataVH" EntityType="ZC_JITCOCKPIT_CDS.C_JITPartnerDataVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="C_JITShipToPartyValueHelp" EntityType="ZC_JITCOCKPIT_CDS.C_JITShipToPartyValueHelpType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="I_Customer" EntityType="ZC_JITCOCKPIT_CDS.I_CustomerType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="I_CustomerClassification" EntityType="ZC_JITCOCKPIT_CDS.I_CustomerClassificationType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="I_JITCallApplicationLog" EntityType="ZC_JITCOCKPIT_CDS.I_JITCallApplicationLogType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="I_JITCallRefTextBasic" EntityType="ZC_JITCOCKPIT_CDS.I_JITCallRefTextBasicType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZC_JITCOCKPIT" EntityType="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <AssociationSet Name="assoc_B5362B3BE57AD3AF27A57B28AF654BB8" Association="ZC_JITCOCKPIT_CDS.assoc_B5362B3BE57AD3AF27A57B28AF654BB8" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZC_JITCOCKPIT" Role="FromRole_assoc_B5362B3BE57AD3AF27A57B28AF654BB8"/>
+                    <End EntitySet="C_JITMaterialValueHelp" Role="ToRole_assoc_B5362B3BE57AD3AF27A57B28AF654BB8"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_3505337FD17A5F215313EFE22BCD45B6" Association="ZC_JITCOCKPIT_CDS.assoc_3505337FD17A5F215313EFE22BCD45B6" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZC_JITCOCKPIT" Role="FromRole_assoc_3505337FD17A5F215313EFE22BCD45B6"/>
+                    <End EntitySet="I_JITCallRefTextBasic" Role="ToRole_assoc_3505337FD17A5F215313EFE22BCD45B6"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_62C835545E7E86CA91579852C1F1AB02" Association="ZC_JITCOCKPIT_CDS.assoc_62C835545E7E86CA91579852C1F1AB02" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZC_JITCOCKPIT" Role="FromRole_assoc_62C835545E7E86CA91579852C1F1AB02"/>
+                    <End EntitySet="C_JITExtCallNumberVH" Role="ToRole_assoc_62C835545E7E86CA91579852C1F1AB02"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_0D02503AFBF6606B983FA4F14CE051AA" Association="ZC_JITCOCKPIT_CDS.assoc_0D02503AFBF6606B983FA4F14CE051AA" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZC_JITCOCKPIT" Role="FromRole_assoc_0D02503AFBF6606B983FA4F14CE051AA"/>
+                    <End EntitySet="C_JITCallTypeValueHelp" Role="ToRole_assoc_0D02503AFBF6606B983FA4F14CE051AA"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_C9CD836CFC89E1433FB2649E56D3AA66" Association="ZC_JITCOCKPIT_CDS.assoc_C9CD836CFC89E1433FB2649E56D3AA66" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="I_Customer" Role="FromRole_assoc_C9CD836CFC89E1433FB2649E56D3AA66"/>
+                    <End EntitySet="I_CustomerClassification" Role="ToRole_assoc_C9CD836CFC89E1433FB2649E56D3AA66"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_9CC86040191C4C298A7E06F462C01A65" Association="ZC_JITCOCKPIT_CDS.assoc_9CC86040191C4C298A7E06F462C01A65" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZC_JITCOCKPIT" Role="FromRole_assoc_9CC86040191C4C298A7E06F462C01A65"/>
+                    <End EntitySet="I_JITCallApplicationLog" Role="ToRole_assoc_9CC86040191C4C298A7E06F462C01A65"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_E59CCA88E05063849064F4FFECC4ABC2" Association="ZC_JITCOCKPIT_CDS.assoc_E59CCA88E05063849064F4FFECC4ABC2" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZC_JITCOCKPIT" Role="FromRole_assoc_E59CCA88E05063849064F4FFECC4ABC2"/>
+                    <End EntitySet="C_JITPartnerDataVH" Role="ToRole_assoc_E59CCA88E05063849064F4FFECC4ABC2"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_425F9ABA76A477E5FC042D8E32C20317" Association="ZC_JITCOCKPIT_CDS.assoc_425F9ABA76A477E5FC042D8E32C20317" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZC_JITCOCKPIT" Role="FromRole_assoc_425F9ABA76A477E5FC042D8E32C20317"/>
+                    <End EntitySet="C_JITContactPerson" Role="ToRole_assoc_425F9ABA76A477E5FC042D8E32C20317"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_5993110D723B39F7FD5BD4B3C8A1F16E" Association="ZC_JITCOCKPIT_CDS.assoc_5993110D723B39F7FD5BD4B3C8A1F16E" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZC_JITCOCKPIT" Role="FromRole_assoc_5993110D723B39F7FD5BD4B3C8A1F16E"/>
+                    <End EntitySet="C_JITShipToPartyValueHelp" Role="ToRole_assoc_5993110D723B39F7FD5BD4B3C8A1F16E"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_94F326EECC463D1A76A3C3E02146A558" Association="ZC_JITCOCKPIT_CDS.assoc_94F326EECC463D1A76A3C3E02146A558" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZC_JITCOCKPIT" Role="FromRole_assoc_94F326EECC463D1A76A3C3E02146A558"/>
+                    <End EntitySet="C_JITLifecycleStatusValueHelp" Role="ToRole_assoc_94F326EECC463D1A76A3C3E02146A558"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_243F373C786E8363F9E11BC0304AF3AB" Association="ZC_JITCOCKPIT_CDS.assoc_243F373C786E8363F9E11BC0304AF3AB" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZC_JITCOCKPIT" Role="FromRole_assoc_243F373C786E8363F9E11BC0304AF3AB"/>
+                    <End EntitySet="I_Customer" Role="ToRole_assoc_243F373C786E8363F9E11BC0304AF3AB"/>
+                </AssociationSet>
+            </EntityContainer>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.I_CustomerType/CustomerClassification" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Customer Classification"/>
+                        <PropertyValue Property="CollectionPath" String="I_CustomerClassification"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CustomerClassification"/>
+                                    <PropertyValue Property="ValueListProperty" String="CustomerClassification"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CustomerClassification_Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/ActiveSupplier" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Consumption view for JIT Partner Data"/>
+                        <PropertyValue Property="CollectionPath" String="C_JITPartnerDataVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CustomerPartnerDescription"/>
+                                    <PropertyValue Property="ValueListProperty" String="CustomerPartnerDescription"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ActiveSupplier"/>
+                                    <PropertyValue Property="ValueListProperty" String="ActiveSupplier"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ShipToParty"/>
+                                    <PropertyValue Property="ValueListProperty" String="ShipToParty"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrganization"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrganization"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DistributionChannel"/>
+                                    <PropertyValue Property="ValueListProperty" String="DistributionChannel"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Division"/>
+                                    <PropertyValue Property="ValueListProperty" String="Division"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SoldToParty"/>
+                                    <PropertyValue Property="ValueListProperty" String="SoldToParty"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CustomerName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="UnloadingPointName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/ExternalJITCallNumberForFilter" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Consumption VH for External JIT Call Num"/>
+                        <PropertyValue Property="CollectionPath" String="C_JITExtCallNumberVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ExternalJITCallNumberForFilter"/>
+                                    <PropertyValue Property="ValueListProperty" String="ExternalJITCallNumber"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/ShipToParty" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Consumption view for JIT Partner Data"/>
+                        <PropertyValue Property="CollectionPath" String="C_JITPartnerDataVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CustomerPartnerDescription"/>
+                                    <PropertyValue Property="ValueListProperty" String="CustomerPartnerDescription"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ActiveSupplier"/>
+                                    <PropertyValue Property="ValueListProperty" String="ActiveSupplier"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ShipToParty"/>
+                                    <PropertyValue Property="ValueListProperty" String="ShipToParty"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrganization"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrganization"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DistributionChannel"/>
+                                    <PropertyValue Property="ValueListProperty" String="DistributionChannel"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Division"/>
+                                    <PropertyValue Property="ValueListProperty" String="Division"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SoldToParty"/>
+                                    <PropertyValue Property="ValueListProperty" String="SoldToParty"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CustomerName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="UnloadingPointName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/ShipToPartyForFilter" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="JIT ShipToParty Value Help"/>
+                        <PropertyValue Property="CollectionPath" String="C_JITShipToPartyValueHelp"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ShipToPartyForFilter"/>
+                                    <PropertyValue Property="ValueListProperty" String="ShipToParty"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="OrganizationBPName1"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/SoldToParty" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Consumption view for JIT Partner Data"/>
+                        <PropertyValue Property="CollectionPath" String="C_JITPartnerDataVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CustomerPartnerDescription"/>
+                                    <PropertyValue Property="ValueListProperty" String="CustomerPartnerDescription"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ActiveSupplier"/>
+                                    <PropertyValue Property="ValueListProperty" String="ActiveSupplier"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ShipToParty"/>
+                                    <PropertyValue Property="ValueListProperty" String="ShipToParty"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrganization"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrganization"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DistributionChannel"/>
+                                    <PropertyValue Property="ValueListProperty" String="DistributionChannel"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Division"/>
+                                    <PropertyValue Property="ValueListProperty" String="Division"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SoldToParty"/>
+                                    <PropertyValue Property="ValueListProperty" String="SoldToParty"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CustomerName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="UnloadingPointName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/JITLifecycleStatus" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="JIT Lifecycle Status Value Help"/>
+                        <PropertyValue Property="CollectionPath" String="C_JITLifecycleStatusValueHelp"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="JITLifecycleStatus"/>
+                                    <PropertyValue Property="ValueListProperty" String="JITLifecycleStatus"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="JITLifecycleStatusText"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/JITCallType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Consumption for Call Type Value Help"/>
+                        <PropertyValue Property="CollectionPath" String="C_JITCallTypeValueHelp"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="JITCallType"/>
+                                    <PropertyValue Property="ValueListProperty" String="JITCallType"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="JITCallType_Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/SalesOrganization" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Consumption view for JIT Partner Data"/>
+                        <PropertyValue Property="CollectionPath" String="C_JITPartnerDataVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CustomerPartnerDescription"/>
+                                    <PropertyValue Property="ValueListProperty" String="CustomerPartnerDescription"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ActiveSupplier"/>
+                                    <PropertyValue Property="ValueListProperty" String="ActiveSupplier"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ShipToParty"/>
+                                    <PropertyValue Property="ValueListProperty" String="ShipToParty"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrganization"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrganization"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DistributionChannel"/>
+                                    <PropertyValue Property="ValueListProperty" String="DistributionChannel"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Division"/>
+                                    <PropertyValue Property="ValueListProperty" String="Division"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SoldToParty"/>
+                                    <PropertyValue Property="ValueListProperty" String="SoldToParty"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CustomerName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="UnloadingPointName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/DistributionChannel" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Consumption view for JIT Partner Data"/>
+                        <PropertyValue Property="CollectionPath" String="C_JITPartnerDataVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CustomerPartnerDescription"/>
+                                    <PropertyValue Property="ValueListProperty" String="CustomerPartnerDescription"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ActiveSupplier"/>
+                                    <PropertyValue Property="ValueListProperty" String="ActiveSupplier"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ShipToParty"/>
+                                    <PropertyValue Property="ValueListProperty" String="ShipToParty"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrganization"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrganization"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DistributionChannel"/>
+                                    <PropertyValue Property="ValueListProperty" String="DistributionChannel"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Division"/>
+                                    <PropertyValue Property="ValueListProperty" String="Division"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SoldToParty"/>
+                                    <PropertyValue Property="ValueListProperty" String="SoldToParty"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CustomerName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="UnloadingPointName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/Division" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Consumption view for JIT Partner Data"/>
+                        <PropertyValue Property="CollectionPath" String="C_JITPartnerDataVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CustomerPartnerDescription"/>
+                                    <PropertyValue Property="ValueListProperty" String="CustomerPartnerDescription"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ActiveSupplier"/>
+                                    <PropertyValue Property="ValueListProperty" String="ActiveSupplier"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ShipToParty"/>
+                                    <PropertyValue Property="ValueListProperty" String="ShipToParty"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrganization"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrganization"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DistributionChannel"/>
+                                    <PropertyValue Property="ValueListProperty" String="DistributionChannel"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Division"/>
+                                    <PropertyValue Property="ValueListProperty" String="Division"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SoldToParty"/>
+                                    <PropertyValue Property="ValueListProperty" String="SoldToParty"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CustomerName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="UnloadingPointName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/CompGrpMatl" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Value Help for Material"/>
+                        <PropertyValue Property="CollectionPath" String="C_JITMaterialValueHelp"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CompGrpMatl"/>
+                                    <PropertyValue Property="ValueListProperty" String="Product"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Plant"/>
+                                    <PropertyValue Property="ValueListProperty" String="Plant"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ProductName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/CustomerPartnerDescription" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Consumption view for JIT Partner Data"/>
+                        <PropertyValue Property="CollectionPath" String="C_JITPartnerDataVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CustomerPartnerDescription"/>
+                                    <PropertyValue Property="ValueListProperty" String="CustomerPartnerDescription"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ActiveSupplier"/>
+                                    <PropertyValue Property="ValueListProperty" String="ActiveSupplier"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ShipToParty"/>
+                                    <PropertyValue Property="ValueListProperty" String="ShipToParty"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrganization"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrganization"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DistributionChannel"/>
+                                    <PropertyValue Property="ValueListProperty" String="DistributionChannel"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Division"/>
+                                    <PropertyValue Property="ValueListProperty" String="Division"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SoldToParty"/>
+                                    <PropertyValue Property="ValueListProperty" String="SoldToParty"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CustomerName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="UnloadingPointName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPIT_CDS_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="Aggregation.ApplySupported">
+                    <Record>
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="None"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPIT_CDS_Entities/I_JITCallRefTextBasic" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="JITRefText"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SearchExpression"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>JITRefText</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPIT_CDS_Entities/ZC_JITCOCKPIT" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>ExternalJITCallNumber_fc</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>ExternalJITCallNumber_fc</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.C_JITCallTypeValueHelpType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SemanticKey">
+                    <Collection>
+                        <PropertyPath>JITCallType</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.C_JITLifecycleStatusValueHelpType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SemanticKey">
+                    <Collection>
+                        <PropertyPath>JITLifecycleStatus</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.C_JITPartnerDataVHType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SemanticKey">
+                    <Collection>
+                        <PropertyPath>UnloadingPointName</PropertyPath>
+                        <PropertyPath>CustomerPartnerDescription</PropertyPath>
+                        <PropertyPath>ActiveSupplier</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.C_JITShipToPartyValueHelpType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SemanticKey">
+                    <Collection>
+                        <PropertyPath>ShipToParty</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="http://gauto-gwf.g-auto.sap.local:8000/sap/opu/odata/sap/ZC_JITCOCKPIT_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://gauto-gwf.g-auto.sap.local:8000/sap/opu/odata/sap/ZC_JITCOCKPIT_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

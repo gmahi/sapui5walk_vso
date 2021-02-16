@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='GASCLNT400')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='GASCLNT400')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='GASCLNT400')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='GASCLNT400')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='GASCLNT400')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='GASCLNT400')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../../sap/zc_jitcockpit_cds/$metadata">
+        <edmx:Include Namespace="ZC_JITCOCKPIT_CDS" Alias="SAP"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="zc_jitcockpit_cds_van.v1" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <Annotations Target="ZC_JITCOCKPIT_CDS.C_JITContactPersonType/CustomerUUID">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.C_JITContactPersonType/BusinessPartnerPerson">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.C_JITContactPersonType/ShipToParty">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.C_JITContactPersonType/BusinessPartner">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.C_JITContactPersonType">
+                <Annotation Term="Communication.Contact">
+                    <Record>
+                        <PropertyValue Property="adr">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="type" EnumMember="Communication.ContactInformationType/preferred"/>
+                                    <PropertyValue Property="locality" Path="CityName"/>
+                                    <PropertyValue Property="country" Path="CountryName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Communication.Address">
+                    <Record>
+                        <PropertyValue Property="type" EnumMember="Communication.ContactInformationType/preferred"/>
+                        <PropertyValue Property="locality" Path="CityName"/>
+                        <PropertyValue Property="country" Path="CountryName"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.C_JITExtCallNumberVHType/ShipToParty">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.C_JITExtCallNumberVHType/SalesOrganization">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.C_JITExtCallNumberVHType/DistributionChannel">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.C_JITExtCallNumberVHType/Division">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.C_JITMaterialValueHelpType/Plant">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.C_JITMaterialValueHelpType/AuthorizationGroup">
+                <Annotation Term="UI.HiddenFilter"/>
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.C_JITPartnerDataVHType/OrganizationBPName1">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.C_JITPartnerDataVHType/OrganizationBPName2">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.C_JITShipToPartyValueHelpType/CustomerUUID">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.C_JITShipToPartyValueHelpType/BusinessPartnerName">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/InternalJITCallNumber">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/ExternalJITCallNumber">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/ActiveSupplier">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/ShipToPartyForFilter">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/BusinessPartnerName">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/OrganizationBPName1">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/SoldToParty">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/JITLifecycleStatusText">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/JITCallTypeText">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/SalesOrganization">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/DistributionChannel">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/Division">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/CustomerPartnerDescription">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/to_Customer">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/to_JITCallApplicationLog">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/to_JITCallRefTextTP">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/to_JITCallTypeValueHelp">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/to_JITContactPerson">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/to_JITExtCallNumberVH">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/to_JITLifecycleStatusValueHelp">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/to_JITMaterialVH">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/to_JITPartnerDataVH">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/to_JITShipToPartyValueHelp">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/CompGrpNumber">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/CustomerUUID">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/JITCallProcessingLogID">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/ExternalJITCallNumber_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/ShipToParty">
+                <Annotation Term="Common.Text" Path="BusinessPartnerName">
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextLast"/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/JITLifecycleStatus">
+                <Annotation Term="Common.Text" Path="JITLifecycleStatusText">
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextOnly"/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/CompGrpMatl">
+                <Annotation Term="Common.Text" Path="ProductName">
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextLast"/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType/Plant"/>
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType">
+                <Annotation Term="UI.DataPoint" Qualifier="JITLifeCycleStatusCriticality">
+                    <Record>
+                        <PropertyValue Property="Value" Path="JITLifecycleStatus"/>
+                        <PropertyValue Property="Title" String="Status"/>
+                        <PropertyValue Property="CriticalityRepresentation" EnumMember="UI.CriticalityRepresentationType/WithoutIcon"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.FilterFacets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="ID" String="AdditionalFilters"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#Additional Filters"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="Additional Filters">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ShipToParty"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="BasicData">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ExternalJITCallNumber"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="JITCallType"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="CallHeader">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="JITCallType"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="GeneralInformationCol1">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Plant"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="GeneralInformationCol2">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="CompGrpMatl"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="JIT Call">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="JITCallType"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ShipToParty"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="PartnerData">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="CustomerPartnerDescription"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ActiveSupplier"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ShipToParty"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="SoldToParty"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="SalesArea">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="SalesOrganization"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="DistributionChannel"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Division"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="ShipToParty">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ShipToParty"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="JIT Call"/>
+                        <PropertyValue Property="TypeNamePlural" String="JIT Calls"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="InternalJITCallNumber"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="CompGrpMatl"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="BusinessPartnerName"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Plant"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                    <!--     <Record Type="UI.DataField">
+                            <PropertyValue Property="Criticality" String="">
+                                <Annotation Term="Core.Messages">
+                                    <Collection>
+                                        <Record>
+                                            <PropertyValue Property="code" String="SADL_GW_EXP_VOCAN-001"/>
+                                            <PropertyValue Property="message" String="Property 'JITLifeCycleStatusCriticality' of annotation 'UI.LINEITEM$1$' in proj./view 'ZC_JITCOCKPIT' not found"/>
+                                            <PropertyValue Property="severity" String="error"/>
+                                        </Record>
+                                    </Collection>
+                                </Annotation>
+                            </PropertyValue>
+                            <PropertyValue Property="CriticalityRepresentation" EnumMember="UI.CriticalityRepresentationType/WithoutIcon"/>
+                            <PropertyValue Property="Value" Path="JITLifecycleStatusText"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record> -->
+              <!--           <Record Type="UI.DataField">
+                            <PropertyValue Property="Criticality" String="">
+                                <Annotation Term="Core.Messages">
+                                    <Collection>
+                                        <Record>
+                                            <PropertyValue Property="code" String="SADL_GW_EXP_VOCAN-001"/>
+                                            <PropertyValue Property="message" String="Property 'JITLifeCycleStatusCriticality' of annotation 'UI.LINEITEM$1$' in proj./view 'ZC_JITCOCKPIT' not found"/>
+                                            <PropertyValue Property="severity" String="error"/>
+                                        </Record>
+                                    </Collection>
+                                </Annotation>
+                            </PropertyValue>
+                            <PropertyValue Property="CriticalityRepresentation" EnumMember="UI.CriticalityRepresentationType/WithoutIcon"/>
+                            <PropertyValue Property="Value" Path="JITLifecycleStatus"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record> -->
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Internal JIT Call Number"/>
+                            <PropertyValue Property="Value" Path="InternalJITCallNumber"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="External JIT Call Number"/>
+                            <PropertyValue Property="Value" Path="ExternalJITCallNumber"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Component Material"/>
+                            <PropertyValue Property="Value" Path="CompGrpNumber"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                      <!--   <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Component Material"/>
+                            <PropertyValue Property="Value" Path="ProductName"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/>
+                        </Record> -->
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>ExternalJITCallNumberForFilter</PropertyPath>
+                        <PropertyPath>JITCallType</PropertyPath>
+                        <PropertyPath>ShipToPartyForFilter</PropertyPath>
+                        <PropertyPath>ShipToParty</PropertyPath>
+                        <PropertyPath>JITLifecycleStatus</PropertyPath>
+                        <PropertyPath>InternalJITCallNumber</PropertyPath>
+                        <PropertyPath>ExternalJITCallNumber</PropertyPath>
+                        <PropertyPath>CompGrpNumber</PropertyPath>
+                        <PropertyPath>ProductName</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

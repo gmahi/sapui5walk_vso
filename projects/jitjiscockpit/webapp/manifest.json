@@ -1,7 +1,8 @@
 {
-	"_version": "1.1.0",
+	"_version": "",
+
 	"sap.app": {
-		"id": "jitcallsrv.jitcallsrv",
+		"id": "nttdata.jitjiscockpit",
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
 		"title": "{{appTitle}}",
@@ -32,6 +33,7 @@
 			}
 		}
 	},
+
 	"sap.ui": {
 		"technology": "UI5",
 		"icons": {
@@ -48,13 +50,15 @@
 			"phone": true
 		}
 	},
+
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "jitcallsrv.jitcallsrv.view.App",
+			"viewName": "nttdata.jitjiscockpit.view.App",
 			"type": "XML",
 			"async": true,
 			"id": "app"
 		},
+
 		"dependencies": {
 			"minUI5Version": "1.66.0",
 			"libs": {
@@ -63,15 +67,17 @@
 				"sap.f": {}
 			}
 		},
+
 		"contentDensities": {
 			"compact": true,
 			"cozy": true
 		},
+
 		"models": {
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
-					"bundleName": "jitcallsrv.jitcallsrv.i18n.i18n"
+					"bundleName": "nttdata.jitjiscockpit.i18n.i18n"
 				}
 			},
 			"": {
@@ -79,36 +85,33 @@
 				"preload": true
 			}
 		},
+
 		"routing": {
 			"config": {
 				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
-				"viewPath": "jitcallsrv.jitcallsrv.view",
+				"viewPath": "nttdata.jitjiscockpit.view",
 				"controlId": "app",
 				"controlAggregation": "pages",
 				"bypassed": {
-					"target": [
-						"notFound"
-					]
+					"target": ["notFound"]
 				},
 				"async": true
 			},
+
 			"routes": [
 				{
 					"pattern": "",
 					"name": "worklist",
-					"target": [
-						"worklist"
-					]
+					"target": ["worklist"]
 				},
 				{
-					"pattern": "Jitcall/{jitcallId},{matgrpId}",
+					"pattern": "ZC_JITCOCKPIT/{objectId}",
 					"name": "object",
-					"target": [
-						"object"
-					]
+					"target": ["object"]
 				}
 			],
+
 			"targets": {
 				"worklist": {
 					"viewName": "Worklist",

@@ -7,7 +7,7 @@ sap.ui.define([
 ], function (BaseController, JSONModel, formatter, Filter, FilterOperator) {
 	"use strict";
 
-	return BaseController.extend("jitcallsrv.jitcallsrv.controller.Worklist", {
+	return BaseController.extend("nttdata.jitjiscockpit.controller.Worklist", {
 
 		formatter: formatter,
 
@@ -38,9 +38,9 @@ sap.ui.define([
 				shareSendEmailSubject: this.getResourceBundle().getText("shareSendEmailWorklistSubject"),
 				shareSendEmailMessage: this.getResourceBundle().getText("shareSendEmailWorklistMessage", [location.href]),
 				tableNoDataText : this.getResourceBundle().getText("tableNoDataText"),
-			// 	tableBusyDelay : 0 */
-			// });
-		/* 	this.setModel(oViewModel, "worklistView");
+				tableBusyDelay : 0
+			});
+			this.setModel(oViewModel, "worklistView");
 
 			// Make sure, busy indication is showing immediately so there is no
 			// break after the busy indication for loading the view's meta data is
@@ -112,7 +112,7 @@ sap.ui.define([
 				var sQuery = oEvent.getParameter("query");
 
 				if (sQuery && sQuery.length > 0) {
-					aTableSearchState = [new Filter("ExternalJITCallNumber", FilterOperator.Contains, sQuery)];
+					aTableSearchState = [new Filter("CompGrpNumber", FilterOperator.Contains, sQuery)];
 				}
 				this._applySearch(aTableSearchState);
 			}
@@ -141,9 +141,7 @@ sap.ui.define([
 		 */
 		_showObject : function (oItem) {
 			this.getRouter().navTo("object", {
-				jitcallId: oItem.getBindingContext().getProperty("InternalJITCallNumber"),
-				matgrpId:  oItem.getBindingContext().getProperty("CompGrpMatl")
-
+				objectId: oItem.getBindingContext().getProperty("InternalJITCallNumber")
 			});
 		},
 

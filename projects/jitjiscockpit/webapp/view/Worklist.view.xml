@@ -1,5 +1,5 @@
 <mvc:View
-	controllerName="jitcallsrv.jitcallsrv.controller.Worklist"
+	controllerName="nttdata.jitjiscockpit.controller.Worklist"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" xmlns:smartTable="sap.ui.comp.smarttable"
@@ -17,6 +17,7 @@
 		</semantic:titleHeading>
 
 		<semantic:content>
+
 			<VBox fitContainer="true">
 				<smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="ZC_JITCOCKPIT"/>
  
@@ -35,14 +36,13 @@
 				</smartTable:SmartTable>
 
 			</VBox>
-
 		<!-- 	<Table
 				id="table"
 				width="auto"
 				items="{
-					path: '/C_JITCallHeaderDataTP',
+					path: '/ZC_JITCOCKPIT',
 					sorter: {
-						path: 'ExternalJITCallNumber',
+						path: 'CompGrpNumber',
 						descending: false
 					}
 				}"
@@ -87,7 +87,7 @@
 						press=".onPress">
 						<cells>
 							<ObjectIdentifier
-								title="{ExternalJITCallNumber}"/>
+								title="{CompGrpNumber}"/>
 							<ObjectNumber
 								number="{
 									path: '',
