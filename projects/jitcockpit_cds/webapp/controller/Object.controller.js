@@ -6,10 +6,11 @@ sap.ui.define([
 ], function (BaseController, JSONModel, History, formatter) {
 	"use strict";
 
-	return BaseController.extend("jitcallsrv.jitcallsrv.controller.Object", {
+	return BaseController.extend("nttdata.jitcockpitcds.controller.Object", {
 
 		formatter: formatter,
 
+	
 		/* =========================================================== */
 		/* lifecycle methods                                           */
 		/* =========================================================== */
@@ -74,7 +75,6 @@ sap.ui.define([
 		_onObjectMatched : function (oEvent) {
 			var sJitcallId =  oEvent.getParameter("arguments").jitcallId;
 			var sMatGrpId  =   oEvent.getParameter("arguments").matgrpId;
-		
 			this.getModel().metadataLoaded().then( function() {
 				var sObjectPath = this.getModel().createKey("ZC_JITCOCKPIT", {
 					InternalJITCallNumber :  sJitcallId,
@@ -128,7 +128,7 @@ sap.ui.define([
 			var oResourceBundle = this.getResourceBundle(),
 				oObject = oView.getBindingContext().getObject(),
 				sObjectId = oObject.InternalJITCallNumber,
-				sObjectName = oObject.ExternalJITCallNumber;
+				sObjectName = oObject.InternalJITCallNumber;
 
 			oViewModel.setProperty("/busy", false);
 

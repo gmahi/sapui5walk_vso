@@ -142,7 +142,7 @@ sap.ui.define([
 		_showObject : function (oItem) {
 			this.getRouter().navTo("object", {
 				jitcallId: oItem.getBindingContext().getProperty("InternalJITCallNumber"),
-				matgrpId:  oItem.getBindingContext().getProperty("CompGrpMatl")
+				matgrpId:  oItem.getBindingContext().getProperty("CompGrpNumber")
 
 			});
 		},

@@ -1,0 +1,272 @@
+<mvc:View controllerName="nttdata.jitcockpitcds.controller.Object"
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:semantic="sap.f.semantic">
+	<Page id="page" title="{i18n>title}">
+		<content>
+			<l:VerticalLayout width="100%">
+				<l:BlockLayout id="blocklayoutheader" background="Dashboard">
+					<l:BlockLayoutRow>
+
+						<l:BlockLayoutCell title="{i18n>material}" titleLevel="Auto" titleAlignment="Begin">
+							<VBox alignItems="Center" justifyContent="Center">
+								<VBox alignItems="Stretch" justifyContent="Center">
+									<Label text="{i18n>materialNo}"/>
+									<HBox class="sapUiSmallMarginBottom">
+										<Input value="{CompGrpMatl}" placeholder="Material  Number" width="180%" editable="false"/>
+										<Button icon="sap-icon://hint" tooltip="Info" class="btnInfo" />
+									</HBox>
+
+									<Label text="{i18n>scheduleAgreement}"/>
+									<HBox class="sapUiSmallMarginBottom">
+										<Input value="Schedule Agg Number" placeholder="Schedule Agg Number" width="180%" editable="false"/>
+										<Button icon="sap-icon://hint" tooltip="Info" class="btnInfo">
+										</Button>
+									</HBox >
+
+									<Label text="{i18n>saQuantity}"/>
+									<HBox class="sapUiSmallMarginBottom">
+										<Input value="Quantity in SA Item" placeholder="Quantity in SA Item" width="180%" editable="false"/>
+										<Button icon="sap-icon://hint" tooltip="Info" class="btnInfo"/>
+									</HBox>
+								</VBox>
+							</VBox>
+						</l:BlockLayoutCell>
+						<l:BlockLayoutCell title="{i18n>customer}" titleLevel="Auto">
+							<VBox alignItems="Center" justifyContent="Center">
+								<VBox alignItems="Stretch" justifyContent="Center">
+									<Label text="{i18n>customer}"/>
+									<HBox class="sapUiSmallMarginBottom">
+										<Input value="{BusinessPartnerName}" placeholder="Customer no+Title" width="180%" editable="false"/>
+										<Button icon="sap-icon://hint" tooltip="Info" class="btnInfo">
+										</Button>
+									</HBox >
+									<Label text="{i18n>contactPerson}"/>
+									<HBox class="sapUiSmallMarginBottom">
+										<Input value="First name + Last name" placeholder="First name + Last name" width="180%" editable="false"/>
+										<Button icon="sap-icon://hint" tooltip="Info" class="btnInfo"/>
+									</HBox >
+									<Label text="{i18n>emailTel}"/>
+									<HBox class="sapUiSmallMarginBottom">
+										<Input value="Email and Tel No" placeholder="Email and Tel No" width="180%" editable="false"/>
+									</HBox >
+								</VBox>
+							</VBox>
+						</l:BlockLayoutCell>
+						<l:BlockLayoutCell title="{i18n>supplier}" titleLevel="Auto">
+							<VBox alignItems="Center" justifyContent="Center">
+								<VBox alignItems="Stretch" justifyContent="Center">
+									<Label text="{i18n>supplier}"/>
+									<HBox class="sapUiSmallMarginBottom">
+										<Input value="Supplier no+Title" placeholder="Supplier no+Title" width="180%" editable="false"/>
+										<Button icon="sap-icon://hint" tooltip="Info" class="btnInfo">
+										</Button>
+									</HBox >
+									<Label text="{i18n>contactPerson}"/>
+									<HBox class="sapUiSmallMarginBottom">
+										<Input value="First name + Last name" placeholder="First name + Last name" width="180%" editable="false"/>
+										<Button icon="sap-icon://hint" tooltip="Info" class="btnInfo"/>
+									</HBox >
+									<Label text="{i18n>emailTel}"/>
+									<HBox class="sapUiSmallMarginBottom">
+										<Input value="Email and Tel No" placeholder="Email and Tel No" width="180%" editable="false"/>
+									</HBox >
+								</VBox>
+							</VBox>
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+
+					<l:BlockLayoutRow>
+						<l:BlockLayoutCell title="{i18n>jitJisActivities}" titleLevel="Auto" titleAlignment="Begin">
+
+							<VBox alignItems="Center" justifyContent="Center">
+								<VBox alignItems="Stretch" justifyContent="Center">
+									<Label text="{i18n>jitCallfromCustomer}" id="label10" class="sapUiSmallMarginTop"/>
+									<HBox class="sapUiSmallMarginBottom">
+										<Input value="{ExternalJITCallNumber}" width="auto" id="input11" placeholder="JIT call Number" enabled="true" editable="false"/>
+										<!-- <core:Icon tooltip="Completed" src="sap-icon://circle-task" color="Positive" class="sapUiLargeMarginBegin sapUiTinyMarginTop" size="1.5rem"/> -->
+										<Button text="S" class="btnStatusText sapUiSmallMarginBegin" type="Reject" />
+										<Button icon="sap-icon://hint" tooltip="Info" class="sapUiMediumMarginBegin"/>
+									</HBox>
+
+									<Label text="{i18n>saNumber}" id="label11"/>
+
+									<HBox class="sapUiSmallMarginBottom">
+										<Input value="SA Number" width="auto" id="input12" placeholder="SA Number" enabled="true" editable="false"/>
+										<!-- <core:Icon tooltip="Completed" src="sap-icon://circle-task" color="Positive" class="sapUiLargeMarginBegin sapUiTinyMarginTop" size="1.5rem"/> -->
+										<Button text="S" class="btnStatusText sapUiSmallMarginBegin" type="Accept" />
+										<Button icon="sap-icon://hint" tooltip="Info" class="sapUiMediumMarginBegin"/>
+									</HBox>
+
+									<Label text="{i18n>idocNumber}" id="label12"/>
+
+									<HBox class="sapUiSmallMarginBottom">
+										<Input value="IDoc Number" width="auto" id="input13" placeholder="iDoc Number" editable="false" class="sapUiSmallMarginBottom"/>
+										<Button text="S" class="btnStatusText sapUiSmallMarginBegin" type="Reject" />
+										<Button icon="sap-icon://hint" tooltip="Info" class="sapUiMediumMarginBegin"/>
+									</HBox>
+
+									<Label text="{i18n>asnSupplier}" id="label13"/>
+									<HBox class="sapUiSmallMarginBottom">
+										<Input value="IDoc Number" width="auto" id="input14" placeholder="IDoc Number" editable="false" class="sapUiSmallMarginBottom"/>
+										<Button text="S" class="btnStatusText sapUiSmallMarginBegin" type="Reject" />
+										<Button icon="sap-icon://hint" tooltip="Info" class="sapUiMediumMarginBegin"/>
+									</HBox>
+									<Label text="{i18n>jitCallNumber}" id="label14"/>
+									<HBox class="sapUiSmallMarginBottom">
+										<Input value="JIT Call Number" width="auto" id="input15" placeholder="JIT Call Number" editable="false" class="sapUiSmallMarginBottom"/>
+										<Button text="S" class="btnStatusText sapUiSmallMarginBegin" type="Reject" />
+										<Button icon="sap-icon://hint" tooltip="Info" class="sapUiMediumMarginBegin"/>
+									</HBox>
+								</VBox>
+							</VBox>
+
+						</l:BlockLayoutCell>
+						<l:BlockLayoutCell title="{i18n>productionActivities}" titleLevel="Auto">
+							<l:content>
+								<VBox alignItems="Center" justifyContent="Center">
+									<VBox alignItems="Stretch" justifyContent="Center">
+
+
+										<HBox class="sapUiLargeMarginBottom sapUiSmallMarginTop">
+											<Link emphasized="true" href="https://ui5.sap.com" text="{i18n>runMRP}" id="link2" enabled="true" class="sapUiLargeMarginEnd" width="auto"/>
+
+											<Button text="S" class="btnStatusText customMargin" type="Reject" />
+										</HBox>
+										<Link emphasized="true" href="https://ui5.sap.com" text="{i18n>convertPlan}" id="link3" enabled="true"/>
+										<HBox class="sapUiSmallMarginBottom">
+											<Input value="Production Order No" width="auto" id="input9" placeholder="Production Order No" editable="false"/>
+											<Button text="S" class="btnStatusText sapUiSmallMarginBegin" type="Reject" />
+											<Button icon="sap-icon://hint" tooltip="Info" class="sapUiMediumMarginBegin"/>
+										</HBox>
+										<Link emphasized="true" href="https://ui5.sap.com" text="{i18n>startProduction}" id="link4" enabled="true"/>
+										<HBox class="sapUiSmallMarginBottom">
+											<Input value="Production started" width="auto" id="input112" placeholder="Production started" editable="false"/>
+											<Button text="S" class="btnStatusText sapUiSmallMarginBegin" type="Reject" />
+											<Button icon="sap-icon://hint" tooltip="Info" class="sapUiMediumMarginBegin"/>
+										</HBox>
+
+										<Link emphasized="true" href="https://ui5.sap.com" text="{i18n>productionSteps}" id="link5" enabled="true"/>
+										<HBox class="sapUiSmallMarginBottom">
+											<Input value="Production steps Completed" width="auto" id="input20" placeholder="Production steps Completed" editable="false"/>
+											<Button text="S" class="btnStatusText sapUiSmallMarginBegin" type="Reject" />
+											<Button icon="sap-icon://hint" tooltip="Info" class="sapUiMediumMarginBegin"/>
+										</HBox>
+										<Link emphasized="true" href="https://ui5.sap.com" text="{i18n>completeProduction}" id="link6" enabled="true"/>
+										<HBox class="sapUiSmallMarginBottom">
+											<Input value="Production Completed" width="auto" id="input21" placeholder="Production Completed" editable="false"/>
+											<Button text="S" class="btnStatusText sapUiSmallMarginBegin" type="Reject" />
+											<Button icon="sap-icon://hint" tooltip="Info" class="sapUiMediumMarginBegin"/>
+										</HBox>
+									</VBox>
+								</VBox>
+							</l:content>
+						</l:BlockLayoutCell>
+						<l:BlockLayoutCell title="{i18n>logisticActivities}" titleLevel="Auto">
+							<l:content>
+								<VBox alignItems="Center" justifyContent="Center">
+									<VBox alignItems="Stretch" justifyContent="Center">
+
+										<Link emphasized="true" href="https://ui5.sap.com" text="{i18n>goodsReceiptRawMat}" id="link7" enabled="true" class="sapUiSmallMarginTop"/>
+										<HBox class="sapUiSmallMarginBottom">
+											<Input value="Wahrhouse order Number" width="auto" id="input22" placeholder="Wahrhouse order Number" editable="false"/>
+											<Button text="S" class="btnStatusText sapUiSmallMarginBegin" type="Reject" />
+											<Button icon="sap-icon://hint" tooltip="Info" class="sapUiMediumMarginBegin"/>
+										</HBox>
+
+										<Link emphasized="true" href="https://ui5.sap.com" text="{i18n>goodsIssueforProduction}" id="link9" enabled="true"/>
+										<HBox class="sapUiSmallMarginBottom">
+											<Input value="Wahrhouse order Number" width="auto" id="input24" placeholder="Wahrhouse order Number" editable="false"/>
+											<Button text="S" class="btnStatusText sapUiSmallMarginBegin" type="Reject" />
+											<Button icon="sap-icon://hint" tooltip="Info" class="sapUiMediumMarginBegin"/>
+										</HBox>
+										<Link emphasized="true" href="https://ui5.sap.com" text="{i18n>goodsReceiptfromProduction}" id="link10" enabled="true"/>
+										<HBox class="sapUiSmallMarginBottom">
+											<Input value="Wahrhouse order Number" width="auto" id="input25" placeholder="Wahrhouse order Number" editable="false"/>
+											<Button text="S" class="btnStatusText sapUiSmallMarginBegin" type="Reject" />
+											<Button icon="sap-icon://hint" tooltip="Info" class="sapUiMediumMarginBegin"/>
+										</HBox>
+										<Link emphasized="true" href="https://ui5.sap.com" text="{i18n>goodsTransfertofinalStorBin}" id="link11" enabled="true"/>
+										<HBox class="sapUiSmallMarginBottom">
+											<Input value="Wahrhouse order Number" width="auto" id="input26" placeholder="Wahrhouse order Number" editable="false"/>
+											<Button text="S" class="btnStatusText sapUiSmallMarginBegin" type="Reject" />
+											<Button icon="sap-icon://hint" tooltip="Info" class="sapUiMediumMarginBegin"/>
+										</HBox>
+										<Link emphasized="true" href="https://ui5.sap.com" text="{i18n>transferfromFinaltoShipArea}" id="link12" enabled="true"/>
+										<HBox class="sapUiSmallMarginBottom">
+											<Input value="Wahrhouse order Number" width="auto" id="input27" placeholder="Wahrhouse order Number" editable="false"/>
+											<Button text="S" class="btnStatusText sapUiSmallMarginBegin" type="Reject" />
+											<Button icon="sap-icon://hint" tooltip="Info" class="sapUiMediumMarginBegin"/>
+										</HBox>
+										<Link emphasized="true" href="https://ui5.sap.com" text="{i18n>goodsShippingtoCustomer}" id="link13" enabled="true"/>
+										<HBox class="sapUiSmallMarginBottom">
+											<Input value="Wahrhouse order Number" width="auto" id="input28" placeholder="Wahrhouse order Number" editable="false"/>
+											<Button text="S" class="btnStatusText sapUiSmallMarginBegin" type="Reject" />
+											<Button icon="sap-icon://hint" tooltip="Info" class="sapUiMediumMarginBegin"/>
+										</HBox>
+									</VBox>
+								</VBox>
+							</l:content>
+						</l:BlockLayoutCell>
+						<l:BlockLayoutCell title="{i18n>qualityManagementActivities}" class="titelCell" titleLevel="Auto">
+							<l:content>
+								<VBox alignItems="Center" justifyContent="Center">
+									<VBox alignItems="Stretch" justifyContent="Center">
+
+										<Label text="{i18n>qualityInspectionforGR}" id="label20" class="sapUiSmallMarginTop"/>
+										<HBox class="sapUiSmallMarginBottom">
+											<Input value="Inspection Lot Number" width="auto" id="input29" placeholder="Inspection Lot Number" editable="false"/>
+											<Button text="S" class="btnStatusText sapUiSmallMarginBegin" type="Reject" />
+											<Button icon="sap-icon://hint" tooltip="Info" class="sapUiMediumMarginBegin"/>
+										</HBox>
+										<Label text="{i18n>resultsRecording}" id="label21"/>
+										<HBox class="sapUiSmallMarginBottom">
+											<Input value="Results Recording Completed" width="auto" id="input30" placeholder="Results Recording Completed" editable="false"/>
+											<Button text="S" class="btnStatusText sapUiSmallMarginBegin" type="Reject" />
+											<Button icon="sap-icon://hint" tooltip="Info" class="sapUiMediumMarginBegin"/>
+										</HBox>
+
+										<Label text="{i18n>usageDecision}" id="label22"/>
+										<HBox class="sapUiSmallMarginBottom">
+											<Input value="Usage Decision Completed" width="auto" id="input31" placeholder="Usage Decision Completed" editable="false"/>
+											<Button text="S" class="btnStatusText sapUiSmallMarginBegin" type="Reject" />
+											<Button icon="sap-icon://hint" tooltip="Info" class="sapUiMediumMarginBegin"/>
+										</HBox>
+
+										<Link emphasized="true" href="https://ui5.sap.com" text="{i18n>displayInsepectinReport}" id="link14" enabled="true" class="sapUiLargeMarginBottom"/>
+										<Label text="{i18n>qualityInspectionGRProduction}" id="label23"/>
+										<HBox class="sapUiSmallMarginBottom">
+											<Input value="Inspection Lot Number" width="auto" id="input32" placeholder="Inspection Lot Number" editable="false"/>
+											<Button text="S" class="btnStatusText sapUiSmallMarginBegin" type="Reject" />
+											<Button icon="sap-icon://hint" tooltip="Info" class="sapUiMediumMarginBegin"/>
+										</HBox>
+										<Label text="{i18n>resultsRecording}" id="label24"/>
+										<HBox class="sapUiSmallMarginBottom">
+											<Input value="Results Recording Completed" width="auto" id="input33" placeholder="Results Recording Completed" editable="false"/>
+											<Button text="S" class="btnStatusText sapUiSmallMarginBegin" type="Reject" />
+											<Button icon="sap-icon://hint" tooltip="Info" class="sapUiMediumMarginBegin"/>
+										</HBox>
+										<Label text="{i18n>usageDecision}" id="label25"/>
+										<HBox class="sapUiSmallMarginBottom">
+											<Input value="Usage Decision Completed" width="auto" id="input34" placeholder="Usage Decision Completed" editable="false"/>
+											<Button text="S" class="btnStatusText sapUiSmallMarginBegin" type="Reject" />
+											<Button icon="sap-icon://hint" tooltip="Info" class="sapUiMediumMarginBegin"/>
+										</HBox>
+										<Link emphasized="true" href="https://ui5.sap.com" text="{i18n>displayInsepectinReport}" id="link15" enabled="true" class="sapUiSmallMarginBottom"/>
+									</VBox>
+								</VBox>
+							</l:content>
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+				</l:BlockLayout>
+			</l:VerticalLayout>
+
+
+		</content>
+	</Page>
+
+
+
+</mvc:View>

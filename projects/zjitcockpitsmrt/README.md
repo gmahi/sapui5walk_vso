@@ -1,22 +1,23 @@
-<<<<<<< HEAD
 ## Application Details
 |               |
 | ------------- |
-|**Generation Date and Time**<br>Thu Feb 11 2021 15:30:33 GMT+0100 (Central European Standard Time)|
+|**Generation Date and Time**<br>Wed Feb 17 2021 22:51:32 GMT+0100 (Central European Standard Time)|
 |**App Generator**<br>@sap/generator-fiori|
-|**App Generator Version**<br>1.1.0|
+|**App Generator Version**<br>1.1.1|
 |**Generation Platform**<br>Visual Studio Code|
-|**Floorplan Used**<br>1worklist|
+|**Floorplan Used**<br>List Report Object Page V2|
 |**Service Type**<br>SAP System (ABAP On Premise)|
-|**Service URL**<br>http://gauto-gwf.g-auto.sap.local:8000/sap/opu/odata/IWFND/RMTSAMPLEFLIGHT//sap/opu/odata/sap/JITCALL_SRV
-|**Module Name**<br>jitcallsrv|
-|**Application Title**<br>App Title|
-|**Namespace**<br>jitcallsrv|
+|**Service URL**<br>http://gauto-gwf.g-auto.sap.local:8000/sap/opu/odata/sap/ZC_JITCOCKPIT_CDS/
+|**Module Name**<br>zjitcockpitsmrt|
+|**Application Title**<br>JIt Cockpit smart|
+|**Namespace**<br>nttdata|
 |**UI5 Theme**<br>sap_fiori_3|
 |**UI5 Version**<br>Latest|
 |**Enable Telemetry**<br>True|
+|**Main Entity**<br>ZC_JITCOCKPIT|
+|**Navigation Entity**<br>None|
 
-## jitcallsrv
+## zjitcockpitsmrt
 
 A Fiori application.
 
@@ -34,7 +35,3 @@ A Fiori application.
 1. Active NodeJS LTS (Long Term Support) version and associated supported NPM version.  (See https://nodejs.org)
 
 
-=======
-# jitcockpitbe
-jitcockpit backend
->>>>>>> 137f70cce18525fc6d656f0ab7ffe98af62652ac
