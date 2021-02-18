@@ -18,13 +18,13 @@
 
 		<semantic:content>
 			<VBox fitContainer="true">
-				<smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="ZC_JITCOCKPIT"/>
+				<smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="ZC_JITCOCKPIT" enableBasicSearch="true" />
  
 				<smartTable:SmartTable smartFilterId="smartFilterBar"
 									   showFullScreenButton="true"
 									   entitySet="ZC_JITCOCKPIT"
 									   tableType="ResponsiveTable"
-									   header="{viewctrl>/title}"
+									   header="{i18n>jitcallheaders}"
 									   id="smartTable"
 									   class="sapUiResponsiveContentPadding">
 

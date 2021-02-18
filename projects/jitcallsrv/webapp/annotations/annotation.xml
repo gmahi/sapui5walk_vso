@@ -14,13 +14,16 @@
     <edmx:DataServices>
         <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com">
             <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType">
-                <!--     <Annotation Term="UI.SelectionFields">
+                <Annotation Term="UI.SelectionFields">
                     <Collection>
-                        <PropertyPath>ExternalJITCallNumber</PropertyPath>
+                        <PropertyPath>ExternalJITCallNumberForFilter</PropertyPath>
+                        <PropertyPath>JITCallType</PropertyPath>
                         <PropertyPath>CompGrpMatl</PropertyPath>
-                      
+                        <PropertyPath>ShipToParty</PropertyPath>
+                        <PropertyPath>JITLifecycleStatus</PropertyPath>
+        
                     </Collection>
-                </Annotation> -->
+                </Annotation>
 
                 <Annotation Term="UI.HeaderInfo">
                     <Record Type="UI.HeaderInfoType">

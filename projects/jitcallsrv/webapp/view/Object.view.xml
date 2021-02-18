@@ -10,28 +10,6 @@
 		<Page id="page" title="{i18n>title}">
 			<content>
 
-	<!-- <semantic:SemanticPage
-		id="page"
-		headerPinnable="false"
-		toggleHeaderOnTitleClick="false"
-		busy="{objectView>/busy}"
-		busyIndicatorDelay="{objectView>/delay}"> -->
-
-		<!-- <semantic:titleHeading>
-			<Title
-				text="{ExternalJITCallNumber}"
-				level="H2"/>
-		</semantic:titleHeading>
-
-		<semantic:headerContent>
-			<ObjectNumber
-			/>
-		</semantic:headerContent>
-
-		<semantic:sendEmailAction>
-			<semantic:SendEmailAction id="shareEmail" press=".onShareEmailPress"/>
-		</semantic:sendEmailAction> -->
-
 		<l:VerticalLayout width="100%">
 			<l:BlockLayout id="blocklayoutheader" background="Dashboard">
 				<l:BlockLayoutRow>
@@ -47,14 +25,14 @@
 
 								<Label text="{i18n>scheduleAgreement}"/>
 								<HBox class="sapUiSmallMarginBottom">
-									<Input value="Schedule Agg Number" placeholder="Schedule Agg Number" width="180%" editable="false"/>
+									<Input value="{SalesOrder}" placeholder="Schedule Agg Number" width="180%" editable="false"/>
 									<Button icon="sap-icon://hint" tooltip="Info" class="btnInfo">
 									</Button>
 								</HBox >
 
 								<Label text="{i18n>saQuantity}"/>
 								<HBox class="sapUiSmallMarginBottom">
-									<Input value="Quantity in SA Item" placeholder="Quantity in SA Item" width="180%" editable="false"/>
+									<Input value="{RequestedQuantity}, {QuantityUnit}" placeholder="Quantity in SA Item" width="180%" editable="false"/>
 									<Button icon="sap-icon://hint" tooltip="Info" class="btnInfo"/>
 								</HBox>
 							</VBox>
