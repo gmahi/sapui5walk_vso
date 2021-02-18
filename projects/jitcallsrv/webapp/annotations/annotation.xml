@@ -13,6 +13,88 @@
     </edmx:Reference>
     <edmx:DataServices>
         <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com">
+            <Annotations Target="ZC_JITCOCKPIT_CDS.ZC_JITCOCKPITType">
+                <!--     <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>ExternalJITCallNumber</PropertyPath>
+                        <PropertyPath>CompGrpMatl</PropertyPath>
+                      
+                    </Collection>
+                </Annotation> -->
+
+                <Annotation Term="UI.HeaderInfo">
+                    <Record Type="UI.HeaderInfoType">
+                        <PropertyValue Property="TypeName" String="Just-In-Time Call"/>
+                        <PropertyValue Property="TypeNamePlural" String="Just-In-Time Call}"/>
+                        <PropertyValue Property="Title" >
+                          <Record Type="UI.DataField">
+                              <PropertyValue Property="Value" String="Jit Calls"></PropertyValue>
+                          </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
+
+
+
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Internal JIT Call Number"/>
+                            <PropertyValue Property="Value" Path="InternalJITCallNumber"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="External JIT Call Number"/>
+                            <PropertyValue Property="Value" Path="ExternalJITCallNumber"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+
+                        <Record Type="UI.DataField">
+
+                            <PropertyValue Property="Value" Path="CompGrpNumber"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+
+                        <Record Type="UI.DataField">
+
+                            <PropertyValue Property="Value" Path="CompGrpMatl"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                        
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="BusinessPartnerName"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Plant"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Criticality" String="">
+                                <Annotation Term="Core.Messages">
+                                    <Collection>
+                                        <Record>
+                                            <PropertyValue Property="code" String="SADL_GW_EXP_VOCAN-001"/>
+                                            <PropertyValue Property="message" String="Property 'JITLifeCycleStatusCriticality' of annotation 'UI.LINEITEM$1$' in proj./view 'ZC_JITCOCKPIT' not found"/>
+                                            <PropertyValue Property="severity" String="error"/>
+                                        </Record>
+                                    </Collection>
+                                </Annotation>
+                            </PropertyValue>
+                            <PropertyValue Property="CriticalityRepresentation" EnumMember="UI.CriticalityRepresentationType/WithoutIcon"/>
+                            <PropertyValue Property="Value" Path="JITLifecycleStatus"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+
+
+                    </Collection>
+                </Annotation>
+
+
+            </Annotations>
+
         </Schema>
     </edmx:DataServices>
 </edmx:Edmx>
